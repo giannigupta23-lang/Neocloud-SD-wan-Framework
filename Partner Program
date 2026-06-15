@@ -3,354 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cisco SDCI + SD-WAN Neocloud Framework</title>
+  <title>SDCI + Cisco SD-WAN | Dual Procurement Paths</title>
   <style>
-    :root {
-      --cisco-blue: #049fd9;
-      --cisco-dark: #0d274d;
-      --cisco-light: #f4f8fb;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --card: #ffffff;
-      --border: #dbe4ee;
-      --success: #0f9d58;
+    :root{
+      --bg:#f4f8fc;
+      --card:#ffffff;
+      --line:#d8e2ee;
+      --text:#102a43;
+      --muted:#627d98;
+      --cisco:#00bceb;
+      --cisco-dark:#0b5cab;
+      --green:#16a34a;
+      --orange:#f59e0b;
+      --purple:#7c3aed;
+      --shadow:0 10px 24px rgba(16,42,67,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .container{
+      width:min(1180px,94%);
+      margin:0 auto;
+      padding:22px 0 36px;
+    }
+    .hero{
+      background:linear-gradient(130deg,var(--cisco-dark),var(--cisco));
+      color:#fff;
+      border-radius:16px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      margin-bottom:16px;
+    }
+    .hero h1{margin:0 0 8px;font-size:clamp(1.2rem,2.6vw,2rem)}
+    .hero p{margin:0;color:#eaf7ff}
+    .chips{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.14);
+      padding:6px 10px;border-radius:999px;font-size:.82rem
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-bottom:14px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .card h2{margin:0 0 8px;font-size:1.05rem}
+    .sub{color:var(--muted);margin:0;font-size:.95rem}
+
+    .lane-title{
+      display:flex;align-items:center;gap:8px;margin-bottom:10px
+    }
+    .dot{width:11px;height:11px;border-radius:99px;display:inline-block}
+    .dot-a{background:var(--green)}
+    .dot-b{background:var(--orange)}
+
+    .steps{
+      display:grid;
+      gap:8px;
+    }
+    .step{
+      border:1px solid var(--line);
+      background:#f9fcff;
+      border-radius:10px;
+      padding:10px 12px;
+      font-size:.93rem;
+    }
+    .arrow{
+      text-align:center;
+      color:var(--cisco-dark);
+      font-weight:700;
+      font-size:1rem;
+      margin:2px 0;
     }
 
-    body {
-      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #f7fbff 0%, #eef6fc 100%);
-      line-height: 1.5;
+    .full{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      box-shadow:var(--shadow);
+      margin-top:10px;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px;
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:8px;
+      font-size:.93rem;
+    }
+    th,td{
+      border:1px solid var(--line);
+      padding:10px;
+      vertical-align:top;
+      text-align:left;
+    }
+    th{background:#eef7ff}
+    .tag{
+      display:inline-block;
+      padding:3px 8px;
+      border-radius:999px;
+      font-size:.78rem;
+      color:#fff;
+      font-weight:600;
+    }
+    .t-a{background:var(--green)}
+    .t-b{background:var(--orange)}
+    .t-r{background:var(--purple)}
+
+    .timeline{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:8px;
+    }
+    .time{
+      border:1px dashed var(--line);
+      background:#fbfdff;
+      border-radius:10px;
+      padding:9px;
+      text-align:center;
+      font-size:.85rem;
+    }
+    .time strong{display:block;color:var(--cisco-dark)}
+
+    .note{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.88rem;
     }
 
-    header {
-      background: linear-gradient(120deg, var(--cisco-dark), var(--cisco-blue));
-      color: #fff;
-      padding: 56px 24px;
-      border-bottom: 6px solid #7fd3f7;
+    @media(max-width:940px){
+      .grid{grid-template-columns:1fr}
+      .timeline{grid-template-columns:1fr 1fr}
     }
-
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero-subtitle {
-      max-width: 860px;
-      color: #d9f2ff;
-      font-size: 1.05rem;
-    }
-
-    .pill-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .pill {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-    }
-
-    main {
-      padding: 28px 0 48px;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      color: var(--cisco-dark);
-      margin-bottom: 14px;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      margin-bottom: 20px;
-      max-width: 900px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 8px 22px rgba(13, 39, 77, 0.06);
-    }
-
-    .card h3 {
-      color: var(--cisco-blue);
-      margin-bottom: 8px;
-      font-size: 1.03rem;
-    }
-
-    .card p {
-      color: #374151;
-      font-size: 0.95rem;
-    }
-
-    .diagram {
-      margin-top: 16px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 8px 22px rgba(13, 39, 77, 0.06);
-    }
-
-    .diagram h3 {
-      color: var(--cisco-dark);
-      margin-bottom: 12px;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      gap: 10px;
-      align-items: center;
-      margin: 8px 0 14px;
-    }
-
-    .node {
-      border: 1px solid #b9d9ea;
-      background: #f5fbff;
-      color: #0f2f57;
-      border-radius: 10px;
-      padding: 14px;
-      text-align: center;
-      font-size: 0.93rem;
-      font-weight: 600;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .arrow {
-      color: var(--cisco-blue);
-      font-size: 1.4rem;
-      font-weight: bold;
-    }
-
-    .bullet-list {
-      margin-top: 8px;
-      padding-left: 18px;
-      color: #374151;
-      font-size: 0.95rem;
-    }
-
-    .bullet-list li {
-      margin-bottom: 6px;
-    }
-
-    .marketplace-strip {
-      margin-top: 18px;
-      border: 1px dashed #9ecde3;
-      background: #f2fbff;
-      border-radius: 10px;
-      padding: 14px;
-    }
-
-    .marketplace-strip strong {
-      color: var(--cisco-dark);
-    }
-
-    .kpi-row {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .kpi {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
-      text-align: center;
-    }
-
-    .kpi .value {
-      color: var(--success);
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .kpi .label {
-      color: var(--muted);
-      font-size: 0.82rem;
-      margin-top: 3px;
-    }
-
-    footer {
-      margin-top: 30px;
-      color: #6b7280;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .flow {
-        grid-template-columns: 1fr;
-      }
-
-      .arrow {
-        transform: rotate(90deg);
-        text-align: center;
-      }
-
-      .kpi-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 520px) {
-      .hero-title {
-        font-size: 1.5rem;
-      }
-
-      .kpi-row {
-        grid-template-columns: 1fr;
-      }
+    @media(max-width:560px){
+      .timeline{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="hero-title">Enterprise Framework: SDCI Procurement + Cisco SD-WAN for Neocloud</div>
-      <p class="hero-subtitle">
-        A reference model for enterprises to procure SD-WAN via Solutions+/GPL, extend secure connectivity through SDCI,
-        and consume AI Inference-as-a-Service marketplaces (e.g., OpenRouter) with policy-driven traffic engineering.
+  <div class="container">
+    <section class="hero">
+      <h1>Cisco SD-WAN + SDCI Commercial Framework (Dual Procurement Paths)</h1>
+      <p>
+        Framework for enterprise and neocloud motions: direct Cisco procurement through Solutions+ / GPL,
+        or direct platform activation with quarterly/half-year license credit-back reconciliation.
       </p>
-      <div class="pill-row">
-        <span class="pill">Solutions+ / GPL</span>
-        <span class="pill">Cisco SD-WAN</span>
-        <span class="pill">SDCI Interconnect</span>
-        <span class="pill">Neocloud Access</span>
-        <span class="pill">Inference Marketplaces</span>
+      <div class="chips">
+        <span class="chip">Enterprise Seller Motion</span>
+        <span class="chip">Neocloud Platform Motion</span>
+        <span class="chip">License Credit-Back</span>
+        <span class="chip">Q / H Reconciliation</span>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <main class="container">
-    <section>
-      <h2 class="section-title">Framework Layers</h2>
-      <p class="section-intro">
-        This model aligns commercial procurement, network onboarding, and AI-service consumption in one operational pattern.
+    <section class="grid">
+      <!-- PATH A -->
+      <article class="card">
+        <div class="lane-title">
+          <span class="dot dot-a"></span>
+          <h2>Path A — Enterprise-Led Procurement (Cisco Direct Motion)</h2>
+        </div>
+        <p class="sub">
+          Enterprise account sellers position and sell SDCI through Solutions+ / GPL and attach Cisco SD-WAN HW/SW.
+        </p>
+        <div class="steps">
+          <div class="step"><strong>1.</strong> Cisco AE identifies AI/Neocloud use case and proposes reference architecture.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>2.</strong> Enterprise procures <strong>SDCI via Solutions+ / GPL</strong> and selects Cisco SD-WAN components.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>3.</strong> Cisco SD-WAN HW/SW deployed; policy and segmentation configured for Neocloud access.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>4.</strong> Enterprise consumes inference services with Cisco-led commercial attribution at sale.</div>
+        </div>
+      </article>
+
+      <!-- PATH B -->
+      <article class="card">
+        <div class="lane-title">
+          <span class="dot dot-b"></span>
+          <h2>Path B — Neocloud/Platform Direct Activation (Credit-Back Motion)</h2>
+        </div>
+        <p class="sub">
+          End customer activates Cisco SD-WAN feature enablement directly within Neocloud/inferencing marketplace.
+        </p>
+        <div class="steps">
+          <div class="step"><strong>1.</strong> Customer signs up in Neocloud or inference platform (example: Together AI style flow).</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>2.</strong> Customer enables <strong>Cisco SD-WAN feature</strong> from platform product catalog.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>3.</strong> Usage/subscription data is mapped to eligible Cisco license/SKU attribution rules.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>4.</strong> Cisco receives <strong>license credit-back</strong> at end of quarter or half-year per partner agreement.</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="full">
+      <h2 style="margin:0 0 8px;">Operating Model: Roles, Attribution, and Reconciliation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Path A (Enterprise Direct)</th>
+            <th>Path B (Neocloud Direct)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Primary Seller</strong></td>
+            <td><span class="tag t-a">Cisco Enterprise Team</span></td>
+            <td><span class="tag t-b">Neocloud / Inference Platform</span></td>
+          </tr>
+          <tr>
+            <td><strong>Procurement Vehicle</strong></td>
+            <td>Solutions+ / GPL (SDCI + SD-WAN HW/SW)</td>
+            <td>Marketplace/Product Catalog “Cisco SD-WAN Feature Enablement”</td>
+          </tr>
+          <tr>
+            <td><strong>Revenue Recognition Trigger</strong></td>
+            <td>At point of enterprise order</td>
+            <td>At reconciliation cycle based on reported activations/usage</td>
+          </tr>
+          <tr>
+            <td><strong>Cisco Attribution</strong></td>
+            <td>Immediate (deal registered/closed)</td>
+            <td><span class="tag t-r">License Credit-Back (Q / H)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Data Needed</strong></td>
+            <td>Customer account, SKU, install base</td>
+            <td>Customer ID mapping, platform instance ID, usage period, eligible SKU table</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin:14px 0 6px;">Reconciliation Timeline (Example)</h3>
+      <div class="timeline">
+        <div class="time"><strong>Month 1</strong>Platform activations start</div>
+        <div class="time"><strong>Month 2</strong>Usage accrual + account mapping</div>
+        <div class="time"><strong>Month 3</strong>Quarter close data freeze</div>
+        <div class="time"><strong>Month 4</strong>Partner validation + dispute window</div>
+        <div class="time"><strong>Month 5</strong>Cisco license credit-back posted</div>
+      </div>
+
+      <p class="note">
+        Note: Define partner contract controls for eligibility rules, SKU crosswalk, reporting cadence, and audit rights.
       </p>
-
-      <div class="grid-3">
-        <article class="card">
-          <h3>1) Procurement Layer</h3>
-          <p>
-            Acquire Cisco SD-WAN components through Solutions+ and GPL motions. Bundle virtual network functions and SDCI
-            connectivity options into enterprise procurement workflows.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>2) Connectivity Layer</h3>
-          <p>
-            Use Cisco SD-WAN with SDCI for secure, deterministic paths into Neocloud environments. Apply segmentation,
-            app-aware routing, and centralized policy through vManage.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>3) Consumption Layer</h3>
-          <p>
-            Publish/enable Cisco SD-WAN connectivity in provider marketplaces and product catalogs, supporting
-            Inference-as-a-Service providers and exchanges such as OpenRouter.
-          </p>
-        </article>
-      </div>
     </section>
-
-    <section class="diagram">
-      <h3>Reference Architecture Flow</h3>
-
-      <div class="flow">
-        <div class="node">Enterprise Branch / DC<br>(Users, Apps, Data)</div>
-        <div class="arrow">➜</div>
-        <div class="node">Cisco SD-WAN Fabric<br>(Policy + Segmentation)</div>
-        <div class="arrow">➜</div>
-        <div class="node">SDCI / Neocloud Edge<br>(Private Interconnect)</div>
-      </div>
-
-      <div class="flow">
-        <div class="node">Neocloud GPU Zones<br>(Model Hosting)</div>
-        <div class="arrow">➜</div>
-        <div class="node">Inference Marketplace<br>(OpenRouter-style Catalog)</div>
-        <div class="arrow">➜</div>
-        <div class="node">Enterprise AI Apps<br>(Low-latency Inference)</div>
-      </div>
-
-      <ul class="bullet-list">
-        <li>Enable catalog-based service ordering for SD-WAN + SDCI bundles.</li>
-        <li>Attach marketplace destinations as policy objects in SD-WAN templates.</li>
-        <li>Steer inference traffic by SLA: latency, jitter, loss, and cost profile.</li>
-      </ul>
-
-      <div class="marketplace-strip">
-        <strong>Marketplace Enablement:</strong>
-        Expose “Cisco SD-WAN Connectivity for AI Inference” as a productized offer in provider marketplaces/catalogs,
-        allowing enterprises to subscribe and activate transport + policy in a guided onboarding flow.
-      </div>
-    </section>
-
-    <section>
-      <h2 class="section-title" style="margin-top:20px;">Target Outcomes</h2>
-      <div class="kpi-row">
-        <div class="kpi">
-          <div class="value">Faster</div>
-          <div class="label">Procurement to Activation</div>
-        </div>
-        <div class="kpi">
-          <div class="value">Lower</div>
-          <div class="label">Inference Path Latency</div>
-        </div>
-        <div class="kpi">
-          <div class="value">Higher</div>
-          <div class="label">Policy & Security Control</div>
-        </div>
-        <div class="kpi">
-          <div class="value">Scalable</div>
-          <div class="label">Multi-Provider AI Access</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 Cisco-inspired reference layout for SDCI + SD-WAN + Neocloud + Inference Marketplace integration
-  </footer>
+  </div>
 </body>
 </html>
