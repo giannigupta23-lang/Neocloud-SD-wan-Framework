@@ -40,6 +40,15 @@
     }
     .hero h1{margin:0 0 8px;font-size:clamp(1.2rem,2.6vw,2rem)}
     .hero p{margin:0;color:#eaf7ff}
+    .one-liner{
+      margin-top:10px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:10px;
+      padding:8px 10px;
+      font-size:.9rem;
+      color:#fff;
+    }
     .chips{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
     .chip{
       border:1px solid rgba(255,255,255,.35);
@@ -70,10 +79,7 @@
     .dot-a{background:var(--green)}
     .dot-b{background:var(--orange)}
 
-    .steps{
-      display:grid;
-      gap:8px;
-    }
+    .steps{display:grid;gap:8px}
     .step{
       border:1px solid var(--line);
       background:#f9fcff;
@@ -97,6 +103,18 @@
       box-shadow:var(--shadow);
       margin-top:10px;
     }
+
+    .pov{
+      margin-top:14px;
+      border:1px solid var(--line);
+      background:#f7fbff;
+      border-radius:12px;
+      padding:12px;
+    }
+    .pov h3{margin:0 0 8px}
+    .pov p{margin:0 0 8px;color:var(--muted)}
+    .pov ul{margin:0;padding-left:18px;color:#26415d}
+    .pov li{margin-bottom:6px;font-size:.93rem}
 
     table{
       width:100%;
@@ -162,6 +180,12 @@
         Framework for enterprise and neocloud motions: direct Cisco procurement through Solutions+ / GPL,
         or direct platform activation with quarterly/half-year license credit-back reconciliation.
       </p>
+
+      <!-- Added one-liner -->
+      <div class="one-liner">
+        Equinix already has both selling motions in place today: enterprise-led Cisco procurement and platform-led activation with reconciliation.
+      </div>
+
       <div class="chips">
         <span class="chip">Enterprise Seller Motion</span>
         <span class="chip">Neocloud Platform Motion</span>
@@ -251,6 +275,22 @@
         </tbody>
       </table>
 
+      <!-- Added End-User POV -->
+      <div class="pov">
+        <h3>End-User POV and Business Implications</h3>
+        <p>
+          Most end customers primarily care about outcomes (speed to deploy, price, performance, and support),
+          not the internal commercial path. If customer experience and terms are equivalent, Cisco should use
+          the route that is most commercially effective while maintaining transparency and clean operations.
+        </p>
+        <ul>
+          <li><strong>Path A benefit to customer:</strong> Familiar enterprise procurement route, centralized sourcing, and standard contracting.</li>
+          <li><strong>Path B benefit to customer:</strong> Faster in-platform activation through neocloud/inference marketplaces.</li>
+          <li><strong>Why both benefit Cisco:</strong> The neocloud path enables direct platform-led sales with license credit-back; the enterprise path keeps AEs incented through SDCI sales via Solutions+ / GPL.</li>
+          <li><strong>Field incentive alignment:</strong> Enterprise AEs can sell SDCI and still be motivated to route workloads to neocloud providers because attribution/credit mechanics reward that behavior.</li>
+        </ul>
+      </div>
+
       <h3 style="margin:14px 0 6px;">Reconciliation Timeline (Example)</h3>
       <div class="timeline">
         <div class="time"><strong>Month 1</strong>Platform activations start</div>
@@ -261,7 +301,7 @@
       </div>
 
       <p class="note">
-        Note: Define partner contract controls for eligibility rules, SKU crosswalk, reporting cadence, and audit rights.
+        Note: Define partner contract controls for eligibility rules, SKU crosswalk, reporting cadence, field-comp alignment, and audit rights.
       </p>
     </section>
   </div>
