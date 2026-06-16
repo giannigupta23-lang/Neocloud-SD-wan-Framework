@@ -95,6 +95,19 @@
       margin:2px 0;
     }
 
+    .micro{
+      margin-top:10px;
+      border:1px solid var(--line);
+      background:#f7fbff;
+      border-radius:10px;
+      padding:10px 12px;
+      font-size:.9rem;
+      color:#26415d;
+    }
+    .micro strong{color:#0b3f75}
+    .micro ul{margin:6px 0 0;padding-left:18px}
+    .micro li{margin-bottom:5px}
+
     .full{
       background:var(--card);
       border:1px solid var(--line);
@@ -181,7 +194,6 @@
         or direct platform activation with quarterly/half-year license credit-back reconciliation.
       </p>
 
-      <!-- Added one-liner -->
       <div class="one-liner">
         Equinix already has both selling motions in place today: enterprise-led Cisco procurement and platform-led activation with reconciliation.
       </div>
@@ -189,6 +201,7 @@
       <div class="chips">
         <span class="chip">Enterprise Seller Motion</span>
         <span class="chip">Neocloud Platform Motion</span>
+        <span class="chip">BYOL Support</span>
         <span class="chip">License Credit-Back</span>
         <span class="chip">Q / H Reconciliation</span>
       </div>
@@ -202,7 +215,8 @@
           <h2>Path A — Enterprise-Led Procurement (Cisco Direct Motion)</h2>
         </div>
         <p class="sub">
-          Enterprise account sellers position and sell SDCI through Solutions+ / GPL and attach Cisco SD-WAN HW/SW.
+          Enterprise account sellers position and sell SDCI through Solutions+ / GPL, attach Cisco SD-WAN HW/SW,
+          and support BYOL portability into target neocloud environments.
         </p>
         <div class="steps">
           <div class="step"><strong>1.</strong> Cisco AE identifies AI/Neocloud use case and proposes reference architecture.</div>
@@ -211,7 +225,19 @@
           <div class="arrow">↓</div>
           <div class="step"><strong>3.</strong> Cisco SD-WAN HW/SW deployed; policy and segmentation configured for Neocloud access.</div>
           <div class="arrow">↓</div>
-          <div class="step"><strong>4.</strong> Enterprise consumes inference services with Cisco-led commercial attribution at sale.</div>
+          <div class="step"><strong>4.</strong> <strong>BYOL enabled:</strong> enterprise can apply existing eligible Cisco licenses to supported deployments.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>5.</strong> Enterprise consumes inference services with Cisco-led commercial attribution at sale.</div>
+        </div>
+
+        <!-- Enterprise buying programs micro segment -->
+        <div class="micro">
+          <strong>Enterprise Buying Programs (Micro Segment):</strong>
+          Align procurement to existing buying constructs to simplify approvals and expand attach.
+          <ul>
+            <li><strong>EA’s:</strong> Use enterprise agreement structures for predictable software consumption.</li>
+            <li><strong>WPAS:</strong> Use approved buying pathways to streamline SDCI + SD-WAN acquisition cycles.</li>
+          </ul>
         </div>
       </article>
 
@@ -222,16 +248,19 @@
           <h2>Path B — Neocloud/Platform Direct Activation (Credit-Back Motion)</h2>
         </div>
         <p class="sub">
-          End customer activates Cisco SD-WAN feature enablement directly within Neocloud/inferencing marketplace.
+          End customer activates Cisco SD-WAN feature enablement directly within Neocloud/inferencing marketplaces,
+          including partners such as Qumulus, Cirrascale, and Massed Compute.
         </p>
         <div class="steps">
-          <div class="step"><strong>1.</strong> Customer signs up in Neocloud or inference platform (example: Together AI style flow).</div>
+          <div class="step"><strong>1.</strong> Customer signs up with Neocloud provider (e.g., Qumulus, Cirrascale, Massed Compute).</div>
           <div class="arrow">↓</div>
-          <div class="step"><strong>2.</strong> Customer enables <strong>Cisco SD-WAN feature</strong> from platform product catalog.</div>
+          <div class="step"><strong>2.</strong> Customer enables <strong>Cisco SD-WAN feature</strong> from provider catalog.</div>
           <div class="arrow">↓</div>
-          <div class="step"><strong>3.</strong> Usage/subscription data is mapped to eligible Cisco license/SKU attribution rules.</div>
+          <div class="step"><strong>3.</strong> <strong>BYOL option:</strong> customer brings eligible existing Cisco licenses where supported by the platform model.</div>
           <div class="arrow">↓</div>
-          <div class="step"><strong>4.</strong> Cisco receives <strong>license credit-back</strong> at end of quarter or half-year per partner agreement.</div>
+          <div class="step"><strong>4.</strong> Usage/subscription data is mapped to eligible Cisco license/SKU attribution rules.</div>
+          <div class="arrow">↓</div>
+          <div class="step"><strong>5.</strong> Cisco receives <strong>license credit-back</strong> at end of quarter or half-year per partner agreement.</div>
         </div>
       </article>
     </section>
@@ -254,8 +283,13 @@
           </tr>
           <tr>
             <td><strong>Procurement Vehicle</strong></td>
-            <td>Solutions+ / GPL (SDCI + SD-WAN HW/SW)</td>
+            <td>Solutions+ / GPL (SDCI + SD-WAN HW/SW) + EA/WPAS alignment</td>
             <td>Marketplace/Product Catalog “Cisco SD-WAN Feature Enablement”</td>
+          </tr>
+          <tr>
+            <td><strong>BYOL</strong></td>
+            <td>Enterprise can bring eligible existing licenses into supported architectures</td>
+            <td>Customer can apply eligible licenses in-provider where partner supports BYOL workflow</td>
           </tr>
           <tr>
             <td><strong>Revenue Recognition Trigger</strong></td>
@@ -275,19 +309,17 @@
         </tbody>
       </table>
 
-      <!-- Added End-User POV -->
       <div class="pov">
         <h3>End-User POV and Business Implications</h3>
         <p>
-          Most end customers primarily care about outcomes (speed to deploy, price, performance, and support),
-          not the internal commercial path. If customer experience and terms are equivalent, Cisco should use
-          the route that is most commercially effective while maintaining transparency and clean operations.
+          Most end customers care about speed, price, performance, and support outcomes—not internal route mechanics.
+          If experience is equivalent, Cisco should prioritize the motion that maximizes attach and efficiency.
         </p>
         <ul>
-          <li><strong>Path A benefit to customer:</strong> Familiar enterprise procurement route, centralized sourcing, and standard contracting.</li>
-          <li><strong>Path B benefit to customer:</strong> Faster in-platform activation through neocloud/inference marketplaces.</li>
-          <li><strong>Why both benefit Cisco:</strong> The neocloud path enables direct platform-led sales with license credit-back; the enterprise path keeps AEs incented through SDCI sales via Solutions+ / GPL.</li>
-          <li><strong>Field incentive alignment:</strong> Enterprise AEs can sell SDCI and still be motivated to route workloads to neocloud providers because attribution/credit mechanics reward that behavior.</li>
+          <li><strong>Path A:</strong> Familiar enterprise procurement model, centralized sourcing controls, and programmatic buying (EA/WPAS).</li>
+          <li><strong>Path B:</strong> Fast in-platform activation through neocloud ecosystems (Qumulus, Cirrascale, Massed Compute), plus BYOL flexibility where supported.</li>
+          <li><strong>Why both benefit Cisco:</strong> Neocloud route enables direct sell-through with credit-back; enterprise route drives SDCI via Solutions+ / GPL and keeps AEs incented.</li>
+          <li><strong>Incentive alignment:</strong> Enterprise AEs are motivated to push business to neoclouds because SDCI and attribution models maintain compensation linkage.</li>
         </ul>
       </div>
 
@@ -301,7 +333,7 @@
       </div>
 
       <p class="note">
-        Note: Define partner contract controls for eligibility rules, SKU crosswalk, reporting cadence, field-comp alignment, and audit rights.
+        Note: Define partner contract controls for BYOL eligibility, SKU crosswalk, reporting cadence, field-comp alignment, and audit rights.
       </p>
     </section>
   </div>
