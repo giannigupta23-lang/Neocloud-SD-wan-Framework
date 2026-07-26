@@ -1,96 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Cisco Secure AI Tokens Commercial Framework</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cisco Secure Tokens — Commercial Framework (Dual Procurement Paths)</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
         line-height: 1.6;
-        margin: 40px;
-        color: #000;
+        margin: 0;
+        padding: 40px;
+        color: #1b1f24;
+        background: #ffffff;
+        max-width: 1000px;
+        margin: 0 auto;
     }
     h1 {
-        font-size: 20px;
+        font-size: 24px;
+        color: #0a3d62;
+        margin-bottom: 6px;
     }
     h2 {
-        font-size: 18px;
-        margin-top: 30px;
+        font-size: 19px;
+        color: #0a3d62;
+        margin-top: 34px;
+        border-bottom: 2px solid #049fd9;
+        padding-bottom: 6px;
     }
-    h3 {
-        font-size: 16px;
+    h3 { font-size: 16px; color: #0a3d62; }
+    .subtitle { color: #555; font-size: 15px; margin-bottom: 18px; }
+    .intro-note {
+        background: #f4f9fc;
+        border-left: 4px solid #049fd9;
+        padding: 12px 16px;
+        margin: 16px 0;
+        font-size: 14.5px;
     }
     .strip {
-        font-weight: bold;
-        margin: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0 26px;
     }
+    .strip span {
+        background: #049fd9;
+        color: #fff;
+        font-weight: bold;
+        font-size: 13px;
+        padding: 6px 14px;
+        border-radius: 20px;
+    }
+    ol, ul { margin: 10px 0; padding-left: 24px; }
+    li { margin-bottom: 8px; }
     table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 10px;
-        margin-bottom: 20px;
+        margin: 14px 0 24px;
+        font-size: 14px;
     }
     th, td {
-        border: 1px solid #000;
-        padding: 8px;
+        border: 1px solid #cdd5dd;
+        padding: 9px 11px;
         text-align: left;
         vertical-align: top;
     }
-    th {
-        background-color: #f2f2f2;
-    }
-    .timeline-table td {
-        border: none;
-        padding: 4px 8px;
-    }
-    .timeline-table td:first-child {
-        font-weight: bold;
-        width: 100px;
+    th { background: #eef5fa; color: #0a3d62; }
+    tr:nth-child(even) td { background: #fafbfc; }
+    .buying-programs { background: #f4f9fc; border: 1px solid #dce6ee; padding: 14px 18px; border-radius: 4px; }
+    .timeline-table td { border: none; padding: 5px 8px; }
+    .timeline-table td:first-child { font-weight: bold; width: 100px; color: #0a3d62; }
+    .note {
+        margin-top: 26px;
+        background: #fff8ee;
+        border: 1px solid #eadfc6;
+        padding: 14px 18px;
+        font-size: 13.5px;
+        color: #5a4a2a;
+        border-radius: 4px;
     }
 </style>
 </head>
 <body>
 
-<h1>Cisco Secure AI Tokens Commercial Framework (Dual Procurement Paths)</h1>
+<h1>Cisco Secure Tokens Commercial Framework (Dual Procurement Paths)</h1>
+<p class="subtitle">Framework for enterprise and neocloud motions: direct Cisco procurement through Solutions+ / GPL, or direct platform activation with quarterly/half-year partner settlement. Cisco acts as merchant of record for all Secure Token transactions.</p>
 
-<p>Framework for enterprise and neocloud motions: direct Cisco procurement through Solutions+ / GPL, or direct platform activation with quarterly/half-year partner settlement.</p>
+<div class="intro-note">
+Equinix already has both selling motions in place today: enterprise-led Cisco procurement and platform-led activation with reconciliation. Cisco Secure Tokens adapts that dual-motion model for secure enterprise access to approved AI models.
+</div>
 
-<p>Equinix already has both selling motions in place today: enterprise-led Cisco procurement and platform-led activation with reconciliation. This model adapts that framework for Cisco Secure AI Tokens.</p>
-
-<p class="strip">Enterprise Seller Motion &nbsp;&nbsp;|&nbsp;&nbsp; Neocloud Platform Motion &nbsp;&nbsp;|&nbsp;&nbsp; BYOL Support &nbsp;&nbsp;|&nbsp;&nbsp; Merchant of Record &nbsp;&nbsp;|&nbsp;&nbsp; Q / H Partner Settlement</p>
+<div class="strip">
+    <span>Enterprise Seller Motion</span>
+    <span>Neocloud Platform Motion</span>
+    <span>BYOL Support</span>
+    <span>Merchant of Record</span>
+    <span>Q / H Partner Settlement</span>
+</div>
 
 <h2>Path A — Enterprise-Led Procurement (Cisco Direct Motion)</h2>
-
-<p>Enterprise account sellers position and sell Cisco Secure AI Tokens through Solutions+ / GPL, attach Cisco SD-WAN HW/SW and Galileo, and support BYOL portability into target neocloud and frontier environments (Diamond Tier).</p>
-
+<p>Enterprise account sellers position and sell Cisco Secure Tokens through Solutions+ / GPL, attach Cisco SD-WAN, security, switching, and Galileo, and support BYOL portability into target neocloud and frontier environments (Diamond Tier).</p>
 <ol>
-    <li>Cisco AE identifies AI/Neocloud use case and proposes reference architecture.</li>
-    <li>Enterprise procures Cisco Secure AI Tokens via Solutions+ / GPL and selects Cisco SD-WAN/Security components.</li>
-    <li>Cisco SD-WAN HW/SW deployed; policy, segmentation, and Galileo configured for Neocloud/Frontier access.</li>
+    <li>Cisco AE identifies AI / Neocloud use case and proposes reference architecture.</li>
+    <li>Enterprise procures Cisco Secure Tokens via Solutions+ / GPL and selects Cisco SD-WAN / security components.</li>
+    <li>Cisco SD-WAN, security, and switching deployed; policy, segmentation, and Galileo configured for Neocloud / Frontier model access.</li>
     <li>BYOL enabled: enterprise can apply existing eligible Cisco licenses to supported deployments.</li>
-    <li>Enterprise consumes inference services (Diamond Tier: OpenAI / Anthropic Claude, plus Platinum/Gold) with Cisco-led commercial attribution at sale.</li>
+    <li>Enterprise consumes model access — Diamond Tier (OpenAI / Anthropic Claude), plus Platinum / Gold — with Cisco-led commercial attribution at sale.</li>
 </ol>
 
+<div class="buying-programs">
 <p><strong>Enterprise Buying Programs (Micro Segment):</strong> Align procurement to existing buying constructs to simplify approvals and expand attach.</p>
-
 <ul>
-    <li><strong>EA’s:</strong> Use enterprise agreement structures for predictable token consumption.</li>
-    <li><strong>WPAS:</strong> Use approved buying pathways to streamline Secure AI Tokens + SD-WAN acquisition cycles.</li>
+    <li><strong>EA's:</strong> Use enterprise agreement structures for predictable token consumption.</li>
+    <li><strong>WPAS:</strong> Use approved buying pathways to streamline Secure Tokens + SD-WAN acquisition cycles.</li>
 </ul>
+</div>
 
-<h2>Path B — Neocloud/Platform Direct Activation (Settlement Motion)</h2>
-
-<p>End customer activates Cisco Secure AI Tokens directly within Neocloud/inferencing marketplaces, including partners such as Qumulus, Cirrascale, and Massed Compute (Platinum and Gold Tiers).</p>
-
+<h2>Path B — Neocloud / Platform Direct Activation (Settlement Motion)</h2>
+<p>End customer activates Cisco Secure Token consumption directly within Neocloud / inferencing marketplaces, including partners such as Qumulus, Cirrascale, and Massed Compute (Platinum and Gold Tiers).</p>
 <ol>
     <li>Customer signs up with Neocloud provider (e.g., Qumulus, Cirrascale, Massed Compute).</li>
-    <li>Customer enables Cisco Secure AI Token consumption from provider catalog.</li>
+    <li>Customer enables Cisco Secure Token consumption from provider catalog. Provider must be qualified (Cisco SD-WAN, Galileo, full Cisco switching).</li>
     <li>BYOL option: customer brings eligible existing Cisco licenses where supported by the platform model.</li>
-    <li>Usage/subscription data is mapped to eligible token and model attribution rules.</li>
-    <li>Cisco acts as Merchant of Record and executes partner settlement (compensating the model builder and neocloud) at end of quarter or half-year per partner agreement.</li>
+    <li>Usage / subscription data is mapped to eligible token, model, and infrastructure attribution rules.</li>
+    <li>Cisco (merchant of record) executes partner settlement — compensating the model builder and neocloud — at end of quarter or half-year per partner agreement.</li>
 </ol>
 
 <h2>Operating Model: Roles, Attribution, and Reconciliation</h2>
-
 <table>
     <tr>
         <th>Component</th>
@@ -105,12 +140,12 @@
     <tr>
         <td><strong>Procurement Vehicle</strong></td>
         <td>Solutions+ / GPL (Tokens + SD-WAN HW/SW) + EA/WPAS alignment</td>
-        <td>Marketplace/Product Catalog “Cisco Secure AI Token Enablement”</td>
+        <td>Marketplace / Product Catalog "Cisco Secure Token Enablement"</td>
     </tr>
     <tr>
         <td><strong>Model Access</strong></td>
-        <td>Diamond (OpenAI / Anthropic), Platinum, Gold</td>
-        <td>Platinum, Gold (Specialized / Open-Source)</td>
+        <td>Diamond (OpenAI / Anthropic Claude), Platinum, Gold</td>
+        <td>Platinum, Gold (specialized / open-source models)</td>
     </tr>
     <tr>
         <td><strong>BYOL</strong></td>
@@ -120,58 +155,39 @@
     <tr>
         <td><strong>Revenue Recognition Trigger</strong></td>
         <td>At point of enterprise order</td>
-        <td>At reconciliation cycle based on reported activations/usage</td>
+        <td>At reconciliation cycle based on reported activations / usage</td>
     </tr>
     <tr>
         <td><strong>Cisco Attribution</strong></td>
-        <td>Immediate (deal registered/closed)</td>
+        <td>Immediate (deal registered / closed)</td>
         <td>Partner Settlement (Q / H)</td>
     </tr>
     <tr>
         <td><strong>Data Needed</strong></td>
-        <td>Customer account, SKU, install base</td>
-        <td>Customer ID mapping, platform instance ID, usage period, eligible SKU table</td>
+        <td>Customer account, token SKU / tier, install base</td>
+        <td>Customer ID mapping, platform instance ID, usage period, eligible SKU / model attribution table</td>
     </tr>
 </table>
 
 <h2>End-User POV and Business Implications</h2>
-
-<p>Most end customers care about speed, price, performance, and support outcomes—not internal route mechanics. If experience is equivalent, Cisco should prioritize the motion that maximizes attach and efficiency.</p>
-
-<p><strong>Path A:</strong> Familiar enterprise procurement model, centralized sourcing controls, programmatic buying (EA/WPAS), and direct access to top-tier Diamond models (OpenAI/Anthropic).</p>
-
-<p><strong>Path B:</strong> Fast in-platform activation through neocloud ecosystems (Qumulus, Cirrascale, Massed Compute), plus BYOL flexibility where supported.</p>
-
+<p>Most end customers care about model quality, speed, price, performance, and support outcomes — not internal route mechanics. If experience is equivalent, Cisco should prioritize the motion that maximizes attach and efficiency.</p>
+<p><strong>Path A:</strong> Familiar enterprise procurement model, centralized sourcing controls, programmatic buying (EA/WPAS), and direct access to top-tier Diamond models (OpenAI / Anthropic).</p>
+<p><strong>Path B:</strong> Fast in-platform activation through neocloud ecosystems (Qumulus, Cirrascale, Massed Compute), plus BYOL flexibility where supported, and access to specialized / open-source models.</p>
 <p><strong>Why both benefit Cisco:</strong> Neocloud route enables direct sell-through with partner settlement; enterprise route drives Tokens and SDCI via Solutions+ / GPL and keeps AEs incented.</p>
-
 <p><strong>Incentive alignment:</strong> Enterprise AEs are motivated to push business to neoclouds because token and attribution models maintain compensation linkage.</p>
 
 <h2>Reconciliation Timeline (Example)</h2>
-
 <table class="timeline-table">
-    <tr>
-        <td>Month 1</td>
-        <td>Platform activations start</td>
-    </tr>
-    <tr>
-        <td>Month 2</td>
-        <td>Usage accrual + account mapping</td>
-    </tr>
-    <tr>
-        <td>Month 3</td>
-        <td>Quarter close data freeze</td>
-    </tr>
-    <tr>
-        <td>Month 4</td>
-        <td>Partner validation + dispute window</td>
-    </tr>
-    <tr>
-        <td>Month 5</td>
-        <td>Cisco partner settlement posted (Model Builder + Neocloud)</td>
-    </tr>
+    <tr><td>Month 1</td><td>Platform activations start</td></tr>
+    <tr><td>Month 2</td><td>Usage accrual + account mapping</td></tr>
+    <tr><td>Month 3</td><td>Quarter close data freeze</td></tr>
+    <tr><td>Month 4</td><td>Partner validation + dispute window</td></tr>
+    <tr><td>Month 5</td><td>Cisco partner settlement posted (Model Builder + Neocloud)</td></tr>
 </table>
 
-<p><em>Note: Define partner contract controls for BYOL eligibility, SKU crosswalk, reporting cadence, field-comp alignment, merchant of record liability, and audit rights.</em></p>
+<div class="note">
+<strong>Note:</strong> Define partner contract controls for BYOL eligibility, SKU crosswalk, reporting cadence, field-comp alignment, merchant-of-record liability, and audit rights. Token unit definition, tier boundaries, and settlement formulas are conceptual and subject to finance and legal validation. All company names are illustrative; no participation is implied.
+</div>
 
 </body>
 </html>
