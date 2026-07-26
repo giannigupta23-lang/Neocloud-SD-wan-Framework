@@ -8,27 +8,29 @@
     body {
         font-family: "Segoe UI", Arial, Helvetica, sans-serif;
         line-height: 1.6;
-        margin: 0;
-        padding: 40px;
+        margin: 0 auto;
+        padding: 44px 28px 70px;
+        max-width: 1000px;
         color: #1b1f24;
         background: #ffffff;
-        max-width: 1000px;
-        margin: 0 auto;
     }
     h1 {
         font-size: 24px;
         color: #0a3d62;
-        margin-bottom: 6px;
+        margin: 0 0 6px;
+        border-bottom: 3px solid #049fd9;
+        padding-bottom: 14px;
     }
     h2 {
         font-size: 19px;
-        color: #0a3d62;
+        color: #ffffff;
+        background: #0a3d62;
         margin-top: 34px;
-        border-bottom: 2px solid #049fd9;
-        padding-bottom: 6px;
+        padding: 8px 14px;
+        border-radius: 4px;
     }
     h3 { font-size: 16px; color: #0a3d62; }
-    .subtitle { color: #555; font-size: 15px; margin-bottom: 18px; }
+    .subtitle { color: #555; font-size: 15px; margin: 14px 0 18px; }
     .intro-note {
         background: #f4f9fc;
         border-left: 4px solid #049fd9;
@@ -66,7 +68,13 @@
     }
     th { background: #eef5fa; color: #0a3d62; }
     tr:nth-child(even) td { background: #fafbfc; }
-    .buying-programs { background: #f4f9fc; border: 1px solid #dce6ee; padding: 14px 18px; border-radius: 4px; }
+    .buying-programs {
+        background: #f4f9fc;
+        border: 1px solid #dce6ee;
+        padding: 14px 18px;
+        border-radius: 4px;
+        margin: 14px 0;
+    }
     .timeline-table td { border: none; padding: 5px 8px; }
     .timeline-table td:first-child { font-weight: bold; width: 100px; color: #0a3d62; }
     .note {
