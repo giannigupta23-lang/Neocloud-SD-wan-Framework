@@ -51,15 +51,13 @@
   .progress-bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));width:0;transition:width .2s;}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:18px;}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:var(--white);flex:0 0 auto;}
-  .brand-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--blue),var(--teal));}
+  .cisco-logo{height:26px;width:auto;display:block;flex-shrink:0;}
+  .brand-divider{width:1px;height:22px;background:var(--border-strong);display:inline-block;margin:0 4px;}
   .page-tabs{display:flex;gap:6px;flex:1 1 auto;justify-content:center;overflow-x:auto;scrollbar-width:none;}
   .page-tabs::-webkit-scrollbar{display:none;}
   .page-tabs button{font-family:inherit;font-size:13px;font-weight:700;color:var(--text-muted);padding:9px 16px;border-radius:999px;white-space:nowrap;background:none;border:1px solid var(--border);cursor:pointer;transition:.2s;}
   .page-tabs button:hover,.page-tabs button.active{color:#04121f;background:linear-gradient(135deg,var(--blue),var(--teal));border-color:transparent;}
   .nav-cta .btn{padding:9px 16px;font-size:13px;}
-  .anchor-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:22px;}
-  .anchor-row a{font-size:12.5px;font-weight:600;color:var(--text-muted);padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);transition:.2s;}
-  .anchor-row a:hover{color:var(--white);border-color:var(--blue-light);}
 
   .hero{padding:80px 0 60px;background:radial-gradient(circle at 15% 10%,rgba(4,159,217,0.18),transparent 55%),radial-gradient(circle at 85% 30%,rgba(0,194,179,0.16),transparent 55%),var(--navy-900);}
   .hero h1{font-size:clamp(36px,6vw,58px);color:var(--white);line-height:1.05;background:linear-gradient(120deg,#fff 30%,var(--blue-light) 70%,var(--teal-light) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
@@ -106,7 +104,6 @@
   .steps li{counter-increment:s;list-style:none;position:relative;padding:13px 16px 13px 54px;background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);font-size:14px;color:var(--text-muted);}
   .steps li::before{content:counter(s);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;}
 
-  /* Gate / factory */
   .gate-banner{background:linear-gradient(135deg,rgba(4,159,217,.16),rgba(0,194,179,.12));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:28px 30px;margin-bottom:32px;}
   .gate-banner h3{color:var(--white);font-size:20px;margin-bottom:8px;}
   .gate-banner p{margin:0;font-size:15px;color:var(--text);}
@@ -190,6 +187,8 @@
   .callout{border-left:3px solid var(--teal);background:rgba(0,194,179,.06);border-radius:var(--radius-md);padding:16px 20px;margin:18px 0;}
   .callout p{margin:0;color:var(--text);}
 
+  .page-disclaimer{margin-top:34px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-soft);border-top:1px solid var(--border);padding:18px 0 0;}
+
   footer{padding:34px 0;text-align:center;color:var(--text-dim);font-size:12px;}
   .footer-tags{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
   .page-foot{display:flex;justify-content:space-between;gap:14px;margin-top:38px;}
@@ -209,7 +208,7 @@
     html{scroll-behavior:auto;}
   }
   @media print{
-    header.site-nav,.no-print,.anchor-row,.page-foot{display:none!important;}
+    header.site-nav,.no-print,.page-foot{display:none!important;}
     body{background:#fff;color:#111;}
     .page{display:block!important;}
     section{border-bottom:none;padding:18px 0;page-break-inside:avoid;}
@@ -217,6 +216,7 @@
     .hero h1{-webkit-text-fill-color:#111;background:none;color:#111;}
     p,li,td{color:#333!important;}
     .tier-details{max-height:none!important;opacity:1!important;overflow:visible!important;}
+    .page-disclaimer{color:#a00!important;}
   }
 </style>
 </head>
@@ -225,7 +225,19 @@
 <header class="site-nav">
   <div class="progress-bar" id="progressBar"></div>
   <div class="nav-inner">
-    <div class="brand"><span class="brand-mark"></span> Cisco Secure AI Tokens</div>
+    <div class="brand">
+      <svg class="cisco-logo" viewBox="0 0 130 40" aria-label="Cisco" role="img">
+        <g fill="#049fd9">
+          <rect x="0"  y="16" width="4" height="8"  rx="2"/>
+          <rect x="10" y="8"  width="4" height="24" rx="2"/>
+          <rect x="20" y="2"  width="4" height="36" rx="2"/>
+          <rect x="30" y="8"  width="4" height="24" rx="2"/>
+          <rect x="40" y="16" width="4" height="8"  rx="2"/>
+        </g>
+        <text x="52" y="27" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#049fd9" letter-spacing="0.5">cisco</text>
+      </svg>
+      <span class="brand-divider"></span> Secure AI Tokens
+    </div>
     <div class="page-tabs" id="pageTabs">
       <button data-page="one" class="active">1 · Vision &amp; Model</button>
       <button data-page="two">2 · The Cisco Gate</button>
@@ -322,6 +334,7 @@
       </div>
       <div class="callout"><p><strong style="color:var(--white);">Positioning:</strong> a three-sided, partner-powered AI marketplace and secure consumption platform — not a simple resale or revenue-share. Economics remain subject to finance, legal, tax, accounting, and revenue-recognition validation.</p></div>
       <div class="page-foot no-print"><span></span><button class="btn btn-primary" data-goto="two">Next: The Cisco Gate →</button></div>
+      <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
   </section>
 </div>
@@ -388,6 +401,7 @@
         <div class="card"><div class="icon">🔬</div><h3>Assurance &amp; Observability</h3><p style="font-size:13.5px;"><strong>Galileo</strong> is the AI-quality lens (model quality, hallucinations, drift, safety). <strong>Splunk</strong> is the infrastructure, security, usage, and operational lens.</p></div>
       </div>
       <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="one">← Vision &amp; Model</button><button class="btn btn-primary" data-goto="three">Next: Tiers &amp; Lifecycle →</button></div>
+      <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
   </section>
 </div>
@@ -422,10 +436,12 @@
         <div class="tier-card tier-platinum" tabindex="0" role="button" aria-expanded="false">
           <div class="tier-rank">Mid Tier</div>
           <h3>Platinum</h3>
-          <div class="tier-price">Enterprise &amp; specialized models on neocloud builds</div>
-          <p class="tier-summary">A broad portfolio of enterprise, private, and specialized models hosted on Cisco-backed neocloud factories, with strong performance and full governance.</p>
+          <div class="tier-price">Top neolabs with enterprise demand, on neocloud builds</div>
+          <div class="co-row"><span class="co-pill">Poolside</span><span class="co-pill">Reflection AI</span><span class="co-pill">Mistral</span><span class="co-pill">Cohere</span><span class="co-pill">AI21 Labs</span></div>
+          <p class="tier-summary">Leading independent "neolabs" already carrying enterprise demand — specialized, private, and coding/agentic models hosted on Cisco-backed neocloud factories.</p>
           <div class="tier-details"><ul>
-            <li>Broad enterprise &amp; specialized-model portfolio</li>
+            <li>Top neolabs: Poolside, Reflection AI, Mistral, Cohere, AI21 Labs (illustrative)</li>
+            <li>Specialized coding, agentic &amp; private models</li>
             <li>Hosted on Cisco-backed neocloud factories</li>
             <li>Strong performance profile</li>
             <li>Strong security &amp; governance</li>
@@ -454,7 +470,7 @@
       <h3 style="color:var(--white);margin-top:38px;">Tier comparison <span class="tag tag-illustrative">Illustrative</span></h3>
       <table>
         <tr><th>Dimension</th><th class="td-diamond">Diamond</th><th class="td-platinum">Platinum</th><th class="td-gold">Gold</th></tr>
-        <tr><td>Model access</td><td>Frontier + premium private</td><td>Enterprise + specialized</td><td>Open-source + task-specific</td></tr>
+        <tr><td>Model access</td><td>Frontier + premium private</td><td>Top neolabs (Poolside, Reflection AI, Mistral, Cohere, AI21)</td><td>Open-source + task-specific</td></tr>
         <tr><td>Where it runs</td><td>Provider's own Cisco build</td><td>Cisco-backed neocloud</td><td>Cisco-backed neocloud</td></tr>
         <tr><td>Performance / latency</td><td>Highest / lowest</td><td>Strong</td><td>Standard</td></tr>
         <tr><td>Reserved capacity</td><td>Yes</td><td>Partial</td><td>On-demand</td></tr>
@@ -462,7 +478,7 @@
         <tr><td>Assurance / observability</td><td>Deep</td><td>Solid</td><td>Baseline</td></tr>
         <tr><td>Support &amp; SLA</td><td>Highest</td><td>Enterprise</td><td>Standard</td></tr>
       </table>
-      <p style="font-size:13px;color:var(--text-dim);margin-top:12px;">Diamond reflects public signals that OpenAI and Anthropic are building their own data centers; no participation is implied.</p>
+      <p style="font-size:13px;color:var(--text-dim);margin-top:12px;">Diamond reflects public signals that OpenAI and Anthropic are building their own data centers. Platinum neolabs are illustrative examples of independent providers with current enterprise demand. No participation is implied.</p>
     </div>
   </section>
 
@@ -494,6 +510,7 @@
         <div class="lc-step"><div class="lc-num">10</div><h4>Optimize</h4><p>Customers optimize future selection.</p></div>
       </div>
       <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="two">← The Cisco Gate</button><button class="btn btn-primary" data-goto="four">Next: Pilot &amp; Next Step →</button></div>
+      <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
   </section>
 </div>
@@ -568,6 +585,7 @@
         <p class="closing">"Cisco Secure AI Tokens could transform Cisco from an infrastructure and security provider supporting AI environments into the trusted commercial and operational layer through which enterprises consume AI."</p>
       </div>
       <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="three">← Tiers &amp; Lifecycle</button><button class="btn btn-primary" id="printBtn2">Print / Export PDF</button></div>
+      <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
   </section>
 </div>
