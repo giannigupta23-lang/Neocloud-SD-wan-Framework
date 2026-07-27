@@ -3,199 +3,869 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cisco Secure Tokens — Commercial Framework (Dual Procurement Paths)</title>
+<title>Cisco Secure AI Tokens — Strategy &amp; Working Session</title>
+<meta name="description" content="Cisco Secure AI Tokens: a conceptual, merchant-of-record consumption model for secure enterprise access to approved AI models and infrastructure.">
 <style>
-    body {
-        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-        line-height: 1.6;
-        margin: 0 auto;
-        padding: 44px 28px 70px;
-        max-width: 1000px;
-        color: #1b1f24;
-        background: #ffffff;
-    }
-    h1 {
-        font-size: 24px;
-        color: #0a3d62;
-        margin: 0 0 6px;
-        border-bottom: 3px solid #049fd9;
-        padding-bottom: 14px;
-    }
-    h2 {
-        font-size: 19px;
-        color: #ffffff;
-        background: #0a3d62;
-        margin-top: 34px;
-        padding: 8px 14px;
-        border-radius: 4px;
-    }
-    h3 { font-size: 16px; color: #0a3d62; }
-    .subtitle { color: #555; font-size: 15px; margin: 14px 0 18px; }
-    .intro-note {
-        background: #f4f9fc;
-        border-left: 4px solid #049fd9;
-        padding: 12px 16px;
-        margin: 16px 0;
-        font-size: 14.5px;
-    }
-    .strip {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 20px 0 26px;
-    }
-    .strip span {
-        background: #049fd9;
-        color: #fff;
-        font-weight: bold;
-        font-size: 13px;
-        padding: 6px 14px;
-        border-radius: 20px;
-    }
-    ol, ul { margin: 10px 0; padding-left: 24px; }
-    li { margin-bottom: 8px; }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 14px 0 24px;
-        font-size: 14px;
-    }
-    th, td {
-        border: 1px solid #cdd5dd;
-        padding: 9px 11px;
-        text-align: left;
-        vertical-align: top;
-    }
-    th { background: #eef5fa; color: #0a3d62; }
-    tr:nth-child(even) td { background: #fafbfc; }
-    .buying-programs {
-        background: #f4f9fc;
-        border: 1px solid #dce6ee;
-        padding: 14px 18px;
-        border-radius: 4px;
-        margin: 14px 0;
-    }
-    .timeline-table td { border: none; padding: 5px 8px; }
-    .timeline-table td:first-child { font-weight: bold; width: 100px; color: #0a3d62; }
-    .note {
-        margin-top: 26px;
-        background: #fff8ee;
-        border: 1px solid #eadfc6;
-        padding: 14px 18px;
-        font-size: 13.5px;
-        color: #5a4a2a;
-        border-radius: 4px;
-    }
+  :root{
+    --navy-900:#050b16;--navy-800:#0a1628;--navy-700:#0f2038;--navy-600:#152c4a;--navy-500:#1c3a5e;
+    --blue:#049fd9;--blue-dark:#0a3d62;--blue-light:#5fc8ef;--teal:#00c2b3;--teal-light:#5be0d3;
+    --gold:#d4af37;--gold-soft:#f0d98a;--platinum:#c9d3dc;--platinum-soft:#e6ebf0;--diamond:#5fc8ef;
+    --white:#f4f9fc;--text:#e7eef5;--text-muted:#9fb3c8;--text-dim:#7488a0;
+    --border:rgba(255,255,255,0.09);--border-strong:rgba(255,255,255,0.16);
+    --radius-lg:18px;--radius-md:12px;--radius-sm:8px;--shadow-card:0 10px 30px rgba(0,0,0,0.35);
+    --maxw:1180px;--nav-h:66px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--navy-900);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  ul,ol{margin:0;padding:0;}
+  h1,h2,h3,h4{margin:0 0 .5em 0;font-weight:700;letter-spacing:-0.01em;}
+  p{margin:0 0 1em 0;color:var(--text-muted);}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .page{display:none;animation:fade .4s ease;}
+  .page.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  section{padding:64px 0;border-bottom:1px solid var(--border);}
+  section:last-child{border-bottom:none;}
+  .section-alt{background:linear-gradient(180deg,var(--navy-800),var(--navy-900));}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px;}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);}
+  .section-title{font-size:clamp(26px,4vw,38px);color:var(--white);}
+  .section-subtitle{max-width:760px;font-size:16.5px;}
+  .section-head{margin-bottom:40px;}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--border-strong);color:var(--text-muted);background:rgba(255,255,255,0.04);}
+  .tag-conceptual{color:var(--blue-light);border-color:rgba(4,159,217,.4);background:rgba(4,159,217,.08);}
+  .tag-illustrative{color:var(--teal-light);border-color:rgba(0,194,179,.4);background:rgba(0,194,179,.08);}
+  .tag-validation{color:var(--gold);border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.08);}
+  .tag-hypothesis{color:#c9a0ff;border-color:rgba(180,140,255,.4);background:rgba(180,140,255,.08);}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .chip{font-size:12.5px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text-muted);}
+  .chip-row{display:flex;flex-wrap:wrap;gap:7px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14.5px;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .15s;font-family:inherit;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;box-shadow:0 8px 24px rgba(4,159,217,.35);}
+  .btn-ghost{background:transparent;border-color:var(--border-strong);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--blue-light);}
+
+  /* NAV */
+  header.site-nav{position:sticky;top:0;z-index:100;background:rgba(5,11,22,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .progress-bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));width:0;transition:width .2s;}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:18px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:var(--white);flex:0 0 auto;}
+  .brand-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--blue),var(--teal));}
+  nav.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;justify-content:center;}
+  nav.nav-links::-webkit-scrollbar{display:none;}
+  nav.nav-links button{font-family:inherit;font-size:13px;font-weight:600;color:var(--text-muted);padding:8px 12px;border-radius:8px;white-space:nowrap;background:none;border:none;cursor:pointer;transition:.2s;}
+  nav.nav-links button:hover,nav.nav-links button.active{color:var(--white);background:rgba(255,255,255,0.07);}
+  .nav-cta .btn{padding:9px 16px;font-size:13px;}
+
+  .hero{padding:96px 0 72px;background:radial-gradient(circle at 15% 10%,rgba(4,159,217,0.18),transparent 55%),radial-gradient(circle at 85% 30%,rgba(0,194,179,0.16),transparent 55%),var(--navy-900);}
+  .hero h1{font-size:clamp(36px,6vw,60px);color:var(--white);line-height:1.05;background:linear-gradient(120deg,#fff 30%,var(--blue-light) 70%,var(--teal-light) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero .lede{font-size:18px;max-width:660px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 34px;}
+  .hero-note{font-size:13px;color:var(--text-dim);border-left:2px solid var(--blue);padding-left:12px;max-width:660px;}
+  .premise{margin-top:34px;border-left:3px solid var(--teal);background:rgba(0,194,179,0.06);border-radius:var(--radius-md);padding:20px 24px;font-size:16px;color:var(--white);font-weight:600;line-height:1.5;max-width:820px;}
+
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{background:linear-gradient(160deg,rgba(255,255,255,0.045),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;box-shadow:var(--shadow-card);transition:transform .2s,border-color .2s;}
+  .card:hover{transform:translateY(-4px);border-color:var(--border-strong);}
+  .card h3{color:var(--white);font-size:18px;}
+  .card h4{color:var(--white);font-size:15px;}
+  .card .icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--blue),var(--teal));margin-bottom:14px;font-size:20px;}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:8px;}
+  .card li{font-size:13.5px;color:var(--text-muted);padding-left:18px;position:relative;}
+  .card li::before{content:"›";position:absolute;left:0;color:var(--teal-light);font-weight:800;}
+
+  /* Ecosystem diagram */
+  .eco-diagram{position:relative;width:100%;aspect-ratio:1/1;max-width:460px;margin:0 auto;}
+  .eco-diagram svg{position:absolute;inset:0;width:100%;height:100%;}
+  .eco-diagram svg line{stroke:var(--border-strong);stroke-width:1.5;stroke-dasharray:4 4;}
+  .eco-node{position:absolute;transform:translate(-50%,-50%);z-index:2;background:var(--navy-800);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:12px 14px;text-align:center;font-size:12.5px;font-weight:700;color:var(--white);width:130px;box-shadow:0 6px 18px rgba(0,0,0,0.4);}
+  .eco-node small{display:block;font-weight:500;color:var(--text-dim);font-size:10.5px;margin-top:2px;}
+  .eco-hub{top:50%;left:50%;width:150px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;border:none;box-shadow:0 0 30px rgba(4,159,217,.5);}
+  .eco-hub small{color:rgba(4,18,31,.7);}
+  .eco-a{top:12%;left:50%;}.eco-b{top:85%;left:18%;}.eco-c{top:85%;left:82%;}
+
+  /* Flow */
+  .flow-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);font-weight:700;margin:22px 0 8px;}
+  .flow-row{display:flex;align-items:stretch;gap:0;overflow-x:auto;padding-bottom:10px;}
+  .flow-node{flex:0 0 200px;background:var(--navy-800);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:16px 14px;margin-right:26px;text-align:center;font-size:13px;font-weight:700;color:var(--white);position:relative;display:flex;flex-direction:column;justify-content:center;}
+  .flow-node.hub{background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;border:none;box-shadow:0 0 22px rgba(4,159,217,.4);}
+  .flow-node small{display:block;font-weight:500;color:var(--text-dim);font-size:11px;margin-top:4px;}
+  .flow-node.hub small{color:rgba(4,18,31,.7);}
+  .flow-node::after{content:"→";position:absolute;right:-24px;top:50%;transform:translateY(-50%);color:var(--teal-light);font-size:20px;font-weight:800;}
+  .flow-node:last-child{margin-right:0;}
+  .flow-node:last-child::after{display:none;}
+  .flow-row.return{flex-direction:row-reverse;}
+  .flow-row.return .flow-node{margin-right:0;margin-left:26px;}
+  .flow-row.return .flow-node:first-child{margin-left:0;}
+  .flow-row.return .flow-node::after{content:"←";left:-24px;right:auto;}
+
+  /* Numbered steps */
+  .steps{counter-reset:s;display:flex;flex-direction:column;gap:12px;}
+  .steps li{counter-increment:s;list-style:none;position:relative;padding:14px 16px 14px 54px;background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);font-size:14px;color:var(--text-muted);}
+  .steps li::before{content:counter(s);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;}
+
+  /* Lifecycle */
+  .lifecycle{display:flex;overflow-x:auto;padding-bottom:12px;}
+  .lc-step{flex:0 0 190px;background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 14px;margin-right:26px;position:relative;}
+  .lc-step:last-child{margin-right:0;}
+  .lc-step::after{content:"→";position:absolute;right:-24px;top:50%;transform:translateY(-50%);color:var(--teal-light);font-size:18px;font-weight:800;}
+  .lc-step:last-child::after{display:none;}
+  .lc-num{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:13px;}
+  .lc-step h4{font-size:13.5px;color:var(--white);margin-bottom:5px;}
+  .lc-step p{font-size:12px;margin:0;}
+
+  /* Tiers */
+  .tier-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tier-card{border-radius:var(--radius-lg);padding:28px;cursor:pointer;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;background:var(--navy-800);}
+  .tier-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card);}
+  .tier-diamond{border-top:4px solid var(--diamond);background:linear-gradient(160deg,rgba(95,200,239,.16),rgba(0,194,179,.05));}
+  .tier-platinum{border-top:4px solid var(--platinum);background:linear-gradient(160deg,rgba(201,211,220,.12),rgba(255,255,255,.02));}
+  .tier-gold{border-top:4px solid var(--gold);background:linear-gradient(160deg,rgba(212,175,55,.18),rgba(212,175,55,.03));}
+  .tier-rank{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:700;}
+  .tier-card h3{font-size:24px;margin:4px 0 8px;color:var(--white);}
+  .tier-price{font-size:12.5px;color:var(--teal-light);font-weight:700;margin-bottom:10px;}
+  .tier-summary{font-size:13.5px;color:var(--text-muted);}
+  .tier-details{max-height:0;overflow:hidden;transition:max-height .35s,opacity .3s;opacity:0;}
+  .tier-card.expanded .tier-details{max-height:700px;opacity:1;margin-top:14px;}
+  .tier-details ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .tier-details li{font-size:13px;color:var(--text-muted);padding-left:18px;position:relative;}
+  .tier-details li::before{content:"›";position:absolute;left:0;color:var(--teal-light);font-weight:800;}
+  .tier-hint{font-size:12px;color:var(--text-dim);margin-top:12px;display:flex;align-items:center;gap:6px;}
+  .tier-hint .chev{transition:transform .3s;}
+  .tier-card.expanded .chev{transform:rotate(180deg);}
+  .co-pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--border-strong);color:var(--white);}
+  .co-row{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0;}
+
+  /* Tier comparison table */
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px;}
+  th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
+  th{background:rgba(4,159,217,.12);color:var(--white);}
+  td{color:var(--text-muted);}
+  tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+  .td-diamond{color:var(--diamond);font-weight:700;}
+  .td-platinum{color:var(--platinum-soft);font-weight:700;}
+  .td-gold{color:var(--gold-soft);font-weight:700;}
+
+  /* Flywheel */
+  .flywheel{position:relative;width:100%;max-width:540px;aspect-ratio:1/1;margin:0 auto 20px;}
+  .flywheel svg{position:absolute;inset:0;width:100%;height:100%;}
+  .fw-ring{fill:none;stroke:var(--border-strong);stroke-width:1.5;stroke-dasharray:6 6;}
+  .fw-ring.spin{animation:spin 45s linear infinite;transform-origin:50% 50%;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .fw-node{position:absolute;transform:translate(-50%,-50%);width:150px;text-align:center;background:var(--navy-800);border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:11px 12px;font-size:11.5px;font-weight:600;color:var(--text);box-shadow:0 6px 18px rgba(0,0,0,.4);}
+  .fw-node .fw-i{display:inline-flex;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-bottom:5px;}
+
+  /* Architecture */
+  .arch-layer{background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--blue);}
+  .arch-layer h4{color:var(--white);font-size:15px;margin-bottom:8px;}
+  .arch-layer:nth-child(2){border-left-color:var(--teal);}
+  .arch-layer:nth-child(3){border-left-color:var(--blue-light);}
+  .arch-layer:nth-child(4){border-left-color:var(--gold);}
+  .arch-layer:nth-child(5){border-left-color:var(--platinum);}
+  .arch-layer:nth-child(6){border-left-color:#c9a0ff;}
+
+  /* Motions / grids */
+  .motion-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+  .motion-card{background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;font-size:13.5px;font-weight:600;color:var(--white);display:flex;align-items:center;gap:11px;}
+  .motion-card .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));flex-shrink:0;}
+
+  /* Accordion */
+  .qa-group h3{color:var(--teal-light);font-size:15px;margin:24px 0 10px;}
+  details.qa{background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:9px;overflow:hidden;}
+  details.qa summary{cursor:pointer;padding:15px 20px;font-weight:600;font-size:14.5px;color:var(--white);list-style:none;display:flex;justify-content:space-between;gap:12px;}
+  details.qa summary::-webkit-details-marker{display:none;}
+  details.qa summary::after{content:"+";font-size:19px;color:var(--teal-light);}
+  details.qa[open] summary::after{content:"–";}
+  details.qa .qa-body{padding:0 20px 16px;font-size:13.5px;color:var(--text-muted);}
+
+  /* Pilot */
+  .pilot-arch{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px;}
+  .pilot-col{background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px;text-align:center;}
+  .pilot-col h4{color:var(--teal-light);font-size:14px;margin-bottom:6px;}
+  .pilot-col p{font-size:13px;margin:0;}
+  .pilot-layer{background:linear-gradient(90deg,rgba(4,159,217,.14),rgba(0,194,179,.14));border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:14px 18px;text-align:center;font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:24px;}
+
+  .risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+  .risk-card{background:var(--navy-800);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--radius-sm);padding:12px 14px;font-size:13px;color:var(--text-muted);}
+
+  .cta-block{text-align:center;padding:52px 40px;border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(4,159,217,.18),rgba(0,194,179,.14));border:1px solid var(--border-strong);}
+  .cta-block h2{color:var(--white);font-size:clamp(24px,4vw,34px);}
+  .closing{max-width:720px;margin:26px auto 0;font-size:17px;color:var(--white);font-style:italic;border-top:1px solid var(--border);padding-top:24px;}
+
+  .callout{border-left:3px solid var(--teal);background:rgba(0,194,179,.06);border-radius:var(--radius-md);padding:16px 20px;margin:18px 0;}
+  .callout p{margin:0;color:var(--text);}
+
+  footer{padding:36px 0;text-align:center;color:var(--text-dim);font-size:12px;}
+  .footer-tags{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+
+  .page-foot{display:flex;justify-content:space-between;gap:14px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border);}
+
+  @media (max-width:920px){
+    .grid-2,.grid-3,.tier-cards,.pilot-arch{grid-template-columns:1fr;}
+    nav.nav-links{justify-content:flex-start;}
+  }
+  @media (max-width:600px){
+    section{padding:48px 0;}
+    .eco-diagram{max-width:320px;}
+    .eco-node{width:100px;font-size:11px;padding:8px 10px;}
+    .page-foot{flex-direction:column;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
+    html{scroll-behavior:auto;}.fw-ring.spin{animation:none;}
+  }
+  @media print{
+    header.site-nav,.no-print,.page-foot{display:none!important;}
+    body{background:#fff;color:#111;}
+    .page{display:block!important;}
+    section{border-bottom:none;padding:20px 0;page-break-inside:avoid;}
+    .card,.tier-card,.flow-node,.lc-step,.motion-card,details.qa,.pilot-col,.arch-layer,.eco-node,.fw-node,.risk-card{background:#fff!important;border:1px solid #ccc!important;color:#111!important;box-shadow:none!important;}
+    .hero h1{-webkit-text-fill-color:#111;background:none;color:#111;}
+    p,li,td{color:#333!important;}
+    .tier-details{max-height:none!important;opacity:1!important;overflow:visible!important;}
+  }
 </style>
 </head>
 <body>
 
-<h1>Cisco Secure Tokens Commercial Framework (Dual Procurement Paths)</h1>
-<p class="subtitle">Framework for enterprise and neocloud motions: direct Cisco procurement through Solutions+ / GPL, or direct platform activation with quarterly/half-year partner settlement. Cisco acts as merchant of record for all Secure Token transactions.</p>
+<header class="site-nav">
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-mark"></span> Cisco Secure AI Tokens</div>
+    <nav class="nav-links" id="navLinks">
+      <button data-page="overview" class="active">Overview</button>
+      <button data-page="problem">Problem</button>
+      <button data-page="ecosystem">Ecosystem</button>
+      <button data-page="mor">Merchant of Record</button>
+      <button data-page="tiers">Token Tiers</button>
+      <button data-page="lifecycle">Lifecycle</button>
+      <button data-page="whycisco">Why Cisco</button>
+      <button data-page="programs">Partner Programs</button>
+      <button data-page="flywheel">Flywheel</button>
+      <button data-page="architecture">Architecture</button>
+      <button data-page="pilot">Pilot</button>
+      <button data-page="questions">Open Questions</button>
+      <button data-page="risks">Risks</button>
+      <button data-page="next">Next Step</button>
+    </nav>
+    <div class="nav-cta no-print"><button class="btn btn-ghost" id="printBtn">Print / PDF</button></div>
+  </div>
+</header>
 
-<div class="intro-note">
-Equinix already has both selling motions in place today: enterprise-led Cisco procurement and platform-led activation with reconciliation. Cisco Secure Tokens adapts that dual-motion model for secure enterprise access to approved AI models.
+<main id="pages">
+
+<!-- OVERVIEW -->
+<div class="page active" id="page-overview">
+  <section class="hero">
+    <div class="container">
+      <div class="tag-row">
+        <span class="tag tag-conceptual">Conceptual</span>
+        <span class="tag tag-illustrative">Illustrative</span>
+        <span class="tag tag-validation">Subject to Validation</span>
+        <span class="tag tag-hypothesis">Working Hypothesis</span>
+      </div>
+      <div class="eyebrow">Cisco Internal — Strategy &amp; Working Session</div>
+      <h1>Cisco Secure AI Tokens</h1>
+      <p class="lede">A standardized, enterprise-grade consumption model through which customers securely access approved AI models and AI infrastructure — with Cisco as the trusted merchant of record and connective layer.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-goto="ecosystem">Explore the Ecosystem</button>
+        <button class="btn btn-ghost" data-goto="tiers">View Token Tiers</button>
+      </div>
+      <p class="hero-note">Conceptual — Subject to technical, commercial, financial, legal, accounting, tax, and regulatory validation. All company names referenced are illustrative examples only; no named company has committed to participate.</p>
+      <div class="premise">"Cisco sells the secure consumption unit. Model builders provide the intelligence. Neocloud partners provide the compute. Cisco connects the parties, secures the experience, measures consumption, and manages the enterprise transaction."</div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Executive Summary</div>
+        <h2 class="section-title">One trusted enterprise AI consumption experience</h2>
+        <p class="section-subtitle">Instead of enterprises separately negotiating contracts, billing, security, infrastructure, governance, observability, and support with every model provider and neocloud, Cisco provides a trusted token-based abstraction layer. Enterprises purchase Cisco Secure AI Tokens; those tokens run approved models on participating infrastructure while Cisco delivers security, networking, observability, assurance, governance, commercial management, and support.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="icon">🎟️</div><h3>The Token</h3><p>A standardized, secure consumption unit purchased through Cisco and — long term — placed on the Cisco Global Price List (GPL) for sale through Cisco's sales organization and partner ecosystem.</p></div>
+        <div class="card"><div class="icon">🔗</div><h3>The Connective Layer</h3><p>Cisco becomes the trusted commercial and operational layer among enterprise customers, AI model builders, and neocloud / infrastructure providers.</p></div>
+        <div class="card"><div class="icon">📈</div><h3>The Growth Engine</h3><p>Drives Cisco data-center switching, networking, security, observability, AI assurance, enterprise software, services, and channel distribution.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Core Strategic Objective</div>
+        <h2 class="section-title">A partner growth engine connecting three groups</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>1 · Enterprise Customers</h3><p>Buy tokens through one Cisco commercial motion and gain secure, flexible access to a portfolio of approved AI models.</p></div>
+        <div class="card"><h3>2 · AI Model Builders</h3><p>Provide the models and intelligence; monetize enterprise demand without building a full global sales, billing, and support operation.</p></div>
+        <div class="card"><h3>3 · Neocloud &amp; Infrastructure</h3><p>Supply the GPU capacity and hosting; gain aggregated enterprise demand and Cisco infrastructure alignment.</p></div>
+      </div>
+      <div class="page-foot no-print"><span></span><button class="btn btn-primary" data-goto="problem">Next: The Problem →</button></div>
+    </div>
+  </section>
 </div>
 
-<div class="strip">
-    <span>Enterprise Seller Motion</span>
-    <span>Neocloud Platform Motion</span>
-    <span>BYOL Support</span>
-    <span>Merchant of Record</span>
-    <span>Q / H Partner Settlement</span>
+<!-- PROBLEM -->
+<div class="page" id="page-problem">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">The Problem Being Solved</div>
+        <h2 class="section-title">Enterprise AI consumption is fragmented</h2>
+        <p class="section-subtitle">Today, enterprises may need to separately manage a long list of contracts, controls, and integrations for every model provider and neocloud they touch.</p>
+      </div>
+      <div class="chip-row" style="margin-bottom:30px;">
+        <span class="chip">Model-provider contracts</span><span class="chip">Infrastructure contracts</span><span class="chip">Security reviews</span><span class="chip">Data policies</span><span class="chip">Networking</span><span class="chip">Identity &amp; access</span><span class="chip">Governance</span><span class="chip">Usage metering</span><span class="chip">Billing</span><span class="chip">Observability</span><span class="chip">AI-quality monitoring</span><span class="chip">Regulatory controls</span><span class="chip">Support agreements</span><span class="chip">Capacity commitments</span>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="icon">🏢</div><h3>Enterprises</h3><p>Bear the full integration and governance burden — repeated for every provider and every neocloud.</p></div>
+        <div class="card"><div class="icon">🧠</div><h3>Smaller Model Builders</h3><p>Have valuable technology but lack the global enterprise sales, procurement, billing, contracting, security, support, and distribution reach to serve large customers.</p></div>
+        <div class="card"><div class="icon">⚡</div><h3>Neoclouds</h3><p>Have specialized GPU capacity but need broader enterprise demand, commercial reach, and integration into trusted enterprise architectures.</p></div>
+      </div>
+      <div class="callout"><p><strong style="color:var(--white);">The opportunity:</strong> Cisco Secure AI Tokens aggregate these requirements into one trusted enterprise consumption experience.</p></div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="overview">← Overview</button><button class="btn btn-primary" data-goto="ecosystem">Next: Ecosystem →</button></div>
+    </div>
+  </section>
 </div>
 
-<h2>Path A — Enterprise-Led Procurement (Cisco Direct Motion)</h2>
-<p>Enterprise account sellers position and sell Cisco Secure Tokens through Solutions+ / GPL, attach Cisco SD-WAN, security, switching, and Galileo, and support BYOL portability into target neocloud and frontier environments (Diamond Tier).</p>
-<ol>
-    <li>Cisco AE identifies AI / Neocloud use case and proposes reference architecture.</li>
-    <li>Enterprise procures Cisco Secure Tokens via Solutions+ / GPL and selects Cisco SD-WAN / security components.</li>
-    <li>Cisco SD-WAN, security, and switching deployed; policy, segmentation, and Galileo configured for Neocloud / Frontier model access.</li>
-    <li>BYOL enabled: enterprise can apply existing eligible Cisco licenses to supported deployments.</li>
-    <li>Enterprise consumes model access — Diamond Tier (OpenAI / Anthropic Claude), plus Platinum / Gold — with Cisco-led commercial attribution at sale.</li>
-</ol>
-
-<div class="buying-programs">
-<p><strong>Enterprise Buying Programs (Micro Segment):</strong> Align procurement to existing buying constructs to simplify approvals and expand attach.</p>
-<ul>
-    <li><strong>EA's:</strong> Use enterprise agreement structures for predictable token consumption.</li>
-    <li><strong>WPAS:</strong> Use approved buying pathways to streamline Secure Tokens + SD-WAN acquisition cycles.</li>
-</ul>
+<!-- ECOSYSTEM -->
+<div class="page" id="page-ecosystem">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Ecosystem Model</div>
+        <h2 class="section-title">A three-sided platform</h2>
+        <p class="section-subtitle">Cisco sits at the center as the trusted connective, commercial, and operational layer between enterprise demand, model supply, and infrastructure capacity.</p>
+      </div>
+      <div class="grid-2" style="align-items:center;">
+        <div class="eco-diagram">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="50" x2="50" y2="12"/><line x1="50" y1="50" x2="18" y2="85"/><line x1="50" y1="50" x2="82" y2="85"/></svg>
+          <div class="eco-node eco-a">Enterprise Customers<small>Token buyers</small></div>
+          <div class="eco-node eco-b">Model Builders<small>Frontier + specialized</small></div>
+          <div class="eco-node eco-c">Neocloud &amp; Infrastructure<small>Compute &amp; capacity</small></div>
+          <div class="eco-node eco-hub">Cisco Secure AI Tokens<small>Merchant of record</small></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card"><h4>Enterprise Customers</h4><p style="font-size:13.5px;">One commercial relationship, one procurement motion, one token model — with access to multiple approved models, Cisco security &amp; networking, usage visibility, AI assurance, governance, support, and model flexibility.</p></div>
+          <div class="card"><div class="tag-row"><span class="tag tag-illustrative">Illustrative only</span></div><h4>AI Model Builders</h4><p style="font-size:13.5px;">Frontier, private, specialized, agentic, coding, and open-source providers. Smaller builders deploy on participating neoclouds; larger providers building their own data centers may deploy Cisco switching, networking, security, and observability directly.</p><div class="chip-row"><span class="chip">OpenAI</span><span class="chip">Anthropic</span><span class="chip">Poolside</span><span class="chip">Reflection AI</span><span class="chip">Specialized private models</span><span class="chip">Open-source</span></div></div>
+          <div class="card"><div class="tag-row"><span class="tag tag-illustrative">Illustrative only</span></div><h4>Neocloud &amp; Infrastructure Partners</h4><p style="font-size:13.5px;">Supply GPU capacity, hosting, networking, storage, and operations. Existing/renamed design-partner participants could get early or preferred access.</p><div class="chip-row"><span class="chip">CoreWeave</span><span class="chip">Nebius</span><span class="chip">BlueSky Compute</span><span class="chip">Cumulus</span><span class="chip">Other GPU / AI infra</span></div></div>
+        </div>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="problem">← Problem</button><button class="btn btn-primary" data-goto="mor">Next: Merchant of Record →</button></div>
+    </div>
+  </section>
 </div>
 
-<h2>Path B — Neocloud / Platform Direct Activation (Settlement Motion)</h2>
-<p>End customer activates Cisco Secure Token consumption directly within Neocloud / inferencing marketplaces, including partners such as Qumulus, Cirrascale, and Massed Compute (Platinum and Gold Tiers).</p>
-<ol>
-    <li>Customer signs up with Neocloud provider (e.g., Qumulus, Cirrascale, Massed Compute).</li>
-    <li>Customer enables Cisco Secure Token consumption from provider catalog. Provider must be qualified (Cisco SD-WAN, Galileo, full Cisco switching).</li>
-    <li>BYOL option: customer brings eligible existing Cisco licenses where supported by the platform model.</li>
-    <li>Usage / subscription data is mapped to eligible token, model, and infrastructure attribution rules.</li>
-    <li>Cisco (merchant of record) executes partner settlement — compensating the model builder and neocloud — at end of quarter or half-year per partner agreement.</li>
-</ol>
+<!-- MERCHANT OF RECORD -->
+<div class="page" id="page-mor">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Commercial Model</div>
+        <h2 class="section-title">Cisco as Merchant of Record</h2>
+        <p class="section-subtitle">Cisco owns the enterprise-facing commercial transaction for every Cisco Secure AI Token, sitting between enterprise demand and ecosystem supply.</p>
+        <div class="tag-row"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-validation">Subject to Validation</span></div>
+      </div>
 
-<h2>Operating Model: Roles, Attribution, and Reconciliation</h2>
-<table>
-    <tr>
-        <th>Component</th>
-        <th>Path A (Enterprise Direct)</th>
-        <th>Path B (Neocloud Direct)</th>
-    </tr>
-    <tr>
-        <td><strong>Primary Seller</strong></td>
-        <td>Cisco Enterprise Team</td>
-        <td>Neocloud / Inference Platform</td>
-    </tr>
-    <tr>
-        <td><strong>Procurement Vehicle</strong></td>
-        <td>Solutions+ / GPL (Tokens + SD-WAN HW/SW) + EA/WPAS alignment</td>
-        <td>Marketplace / Product Catalog "Cisco Secure Token Enablement"</td>
-    </tr>
-    <tr>
-        <td><strong>Model Access</strong></td>
-        <td>Diamond (OpenAI / Anthropic Claude), Platinum, Gold</td>
-        <td>Platinum, Gold (specialized / open-source models)</td>
-    </tr>
-    <tr>
-        <td><strong>BYOL</strong></td>
-        <td>Enterprise can bring eligible existing licenses into supported architectures</td>
-        <td>Customer can apply eligible licenses in-provider where partner supports BYOL workflow</td>
-    </tr>
-    <tr>
-        <td><strong>Revenue Recognition Trigger</strong></td>
-        <td>At point of enterprise order</td>
-        <td>At reconciliation cycle based on reported activations / usage</td>
-    </tr>
-    <tr>
-        <td><strong>Cisco Attribution</strong></td>
-        <td>Immediate (deal registered / closed)</td>
-        <td>Partner Settlement (Q / H)</td>
-    </tr>
-    <tr>
-        <td><strong>Data Needed</strong></td>
-        <td>Customer account, token SKU / tier, install base</td>
-        <td>Customer ID mapping, platform instance ID, usage period, eligible SKU / model attribution table</td>
-    </tr>
-</table>
+      <div class="flow-label">Forward Flow — Sale &amp; Delivery</div>
+      <div class="flow-row">
+        <div class="flow-node">Enterprise Customer<small>Buyer of record</small></div>
+        <div class="flow-node">Purchases Cisco Secure AI Tokens<small>GPL / EA / WPAS motion</small></div>
+        <div class="flow-node hub">Cisco<small>Merchant of Record</small></div>
+        <div class="flow-node">Approved Model Builder<small>Frontier or specialized</small></div>
+        <div class="flow-node">Participating Neocloud Infrastructure<small>Hosting &amp; compute</small></div>
+      </div>
 
-<h2>End-User POV and Business Implications</h2>
-<p>Most end customers care about model quality, speed, price, performance, and support outcomes — not internal route mechanics. If experience is equivalent, Cisco should prioritize the motion that maximizes attach and efficiency.</p>
-<p><strong>Path A:</strong> Familiar enterprise procurement model, centralized sourcing controls, programmatic buying (EA/WPAS), and direct access to top-tier Diamond models (OpenAI / Anthropic).</p>
-<p><strong>Path B:</strong> Fast in-platform activation through neocloud ecosystems (Qumulus, Cirrascale, Massed Compute), plus BYOL flexibility where supported, and access to specialized / open-source models.</p>
-<p><strong>Why both benefit Cisco:</strong> Neocloud route enables direct sell-through with partner settlement; enterprise route drives Tokens and SDCI via Solutions+ / GPL and keeps AEs incented.</p>
-<p><strong>Incentive alignment:</strong> Enterprise AEs are motivated to push business to neoclouds because token and attribution models maintain compensation linkage.</p>
+      <div class="flow-label">Return Flow — Measurement &amp; Settlement</div>
+      <div class="flow-row return">
+        <div class="flow-node">Partner Settlement<small>Model builder + neocloud</small></div>
+        <div class="flow-node">Usage Attribution<small>By model &amp; infrastructure</small></div>
+        <div class="flow-node hub">Measured Token Consumption<small>Metering &amp; reporting</small></div>
+      </div>
 
-<h2>Reconciliation Timeline (Example)</h2>
-<table class="timeline-table">
-    <tr><td>Month 1</td><td>Platform activations start</td></tr>
-    <tr><td>Month 2</td><td>Usage accrual + account mapping</td></tr>
-    <tr><td>Month 3</td><td>Quarter close data freeze</td></tr>
-    <tr><td>Month 4</td><td>Partner validation + dispute window</td></tr>
-    <tr><td>Month 5</td><td>Cisco partner settlement posted (Model Builder + Neocloud)</td></tr>
-</table>
+      <h3 style="color:var(--white);margin-top:36px;">The Commercial Flow</h3>
+      <ol class="steps">
+        <li>An enterprise purchases Cisco Secure AI Tokens from Cisco.</li>
+        <li>The tokens entitle the enterprise to consume approved AI models.</li>
+        <li>Cisco manages contracting, invoicing, billing, entitlements, packaging, and support.</li>
+        <li>The enterprise selects or is routed to an approved AI model.</li>
+        <li>The model runs on an approved neocloud, Cisco-enabled infrastructure, or qualified model-provider environment.</li>
+        <li>Cisco measures token consumption.</li>
+        <li>Usage is attributed to the relevant model builder and infrastructure provider.</li>
+        <li>Cisco manages partner settlement per the agreed commercial framework.</li>
+        <li>The model builder earns economics from use of its model.</li>
+        <li>The neocloud earns economics from compute / capacity consumed.</li>
+        <li>Cisco retains the enterprise relationship and provides security, networking, governance, observability, assurance, distribution, and support.</li>
+      </ol>
 
-<div class="note">
-<strong>Note:</strong> Define partner contract controls for BYOL eligibility, SKU crosswalk, reporting cadence, field-comp alignment, merchant-of-record liability, and audit rights. Token unit definition, tier boundaries, and settlement formulas are conceptual and subject to finance and legal validation. All company names are illustrative; no participation is implied.
+      <h3 style="color:var(--white);margin-top:40px;">Role of each participant</h3>
+      <div class="grid-3">
+        <div class="card"><div class="icon">🔷</div><h3>Cisco</h3><p style="font-size:13px;">Merchant of record, ecosystem orchestrator, enterprise seller, and commercial aggregator.</p><ul><li>Token sales &amp; GPL placement</li><li>Contracting, invoicing, entitlements</li><li>Usage metering &amp; token accounting</li><li>Model &amp; infrastructure routing</li><li>Partner settlement</li><li>Security, identity, data governance</li><li>Splunk observability · Galileo assurance</li><li>Support · qualification · compliance · capacity orchestration</li></ul></div>
+        <div class="card"><div class="icon">🧠</div><h3>Model Builders</h3><p style="font-size:13px;">Provide models, IP, inference, agentic capability, updates, and quality commitments. Earn when tokens are consumed by their model.</p><ul><li>Access to Cisco enterprise demand</li><li>Reduced contracting / billing / procurement friction</li><li>Trusted infrastructure options</li><li>Integrated security, observability, assurance</li><li>Enterprise distribution &amp; neocloud capacity</li></ul></div>
+        <div class="card"><div class="icon">⚡</div><h3>Neocloud &amp; Infrastructure</h3><p style="font-size:13px;">Provide GPU compute, hosting, storage, capacity, and operations. Earn from compute / capacity consumed via token usage.</p><ul><li>Aggregated enterprise demand</li><li>Cisco sales reach &amp; infrastructure alignment</li><li>Joint reference architectures</li><li>Enterprise-grade security &amp; observability</li><li>Model-provider demand &amp; co-sell</li></ul></div>
+      </div>
+
+      <div class="callout"><p><strong style="color:var(--white);">Positioning:</strong> a three-sided, partner-powered AI marketplace and secure consumption platform — <em>not</em> a simple resale agreement or basic revenue-share. Final economics could reflect token consumption, model usage, compute, reserved capacity, infrastructure type, model cost, performance tier, geography, service level, and security/support requirements. All mechanics remain subject to validation by finance, legal, tax, accounting, product, sales, partner, revenue-recognition, and regulatory teams. <span class="tag tag-validation">Subject to Validation</span></p></div>
+
+      <h3 style="color:var(--white);margin-top:36px;">Illustrative Transaction <span class="tag tag-illustrative">Illustrative</span></h3>
+      <ol class="steps">
+        <li>An enterprise purchases a pool of Cisco Secure AI Tokens.</li>
+        <li>The enterprise selects an approved specialized AI model.</li>
+        <li>The model is hosted on an approved neocloud.</li>
+        <li>The enterprise submits workloads to the model.</li>
+        <li>Cisco security and identity policies validate access.</li>
+        <li>The workload runs on the neocloud's infrastructure.</li>
+        <li>Token usage is measured.</li>
+        <li>Galileo monitors AI quality, drift, reliability, safety, and behavior.</li>
+        <li>Splunk monitors infrastructure, security, applications, usage, and operations.</li>
+        <li>Cisco invoices the enterprise as merchant of record.</li>
+        <li>Cisco attributes usage to the model builder and infrastructure provider.</li>
+        <li>Cisco settles the appropriate partner economics.</li>
+        <li>The enterprise receives one Cisco-led commercial, security, governance, observability, and support experience.</li>
+      </ol>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="ecosystem">← Ecosystem</button><button class="btn btn-primary" data-goto="tiers">Next: Token Tiers →</button></div>
+    </div>
+  </section>
 </div>
+
+<!-- TIERS -->
+<div class="page" id="page-tiers">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Token Structure</div>
+        <h2 class="section-title">Diamond · Platinum · Gold</h2>
+        <p class="section-subtitle">A conceptual three-tier model. Diamond is the highest tier. Click any card to expand its illustrative entitlements. Tier names and entitlements are conceptual and subject to validation.</p>
+        <div class="tag-row"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-validation">Subject to Validation</span></div>
+      </div>
+
+      <div class="tier-cards">
+        <div class="tier-card tier-diamond" tabindex="0" role="button" aria-expanded="false">
+          <div class="tier-rank">Highest Tier · Best Option</div>
+          <h3>Diamond</h3>
+          <div class="tier-price">Leading frontier + premium private models</div>
+          <div class="co-row"><span class="co-pill">OpenAI — Frontier</span><span class="co-pill">Anthropic — Claude</span></div>
+          <p class="tier-summary">The top-of-stack frontier pairing plus advanced agentic and premium private models, with reserved capacity and the deepest Cisco stack.</p>
+          <div class="tier-details"><ul>
+            <li>Leading frontier models (OpenAI + Claude, illustrative)</li>
+            <li>Premium private &amp; advanced agentic models</li>
+            <li>Reserved capacity · highest performance / lowest latency</li>
+            <li>Advanced governance &amp; data isolation</li>
+            <li>Deep observability &amp; advanced AI assurance</li>
+            <li>Advanced security controls</li>
+            <li>Highest support level &amp; SLA</li>
+          </ul></div>
+          <div class="tier-hint">Tap to expand <span class="chev">▾</span></div>
+        </div>
+
+        <div class="tier-card tier-platinum" tabindex="0" role="button" aria-expanded="false">
+          <div class="tier-rank">Mid Tier</div>
+          <h3>Platinum</h3>
+          <div class="tier-price">Broad enterprise, private &amp; specialized models</div>
+          <p class="tier-summary">A broad portfolio of enterprise, private, and specialized models — largely neocloud-hosted — with strong performance and full governance.</p>
+          <div class="tier-details"><ul>
+            <li>Broad enterprise-model portfolio</li>
+            <li>Private &amp; specialized models</li>
+            <li>Strong performance profile</li>
+            <li>Strong security &amp; governance</li>
+            <li>Solid observability &amp; AI assurance</li>
+            <li>Enterprise support</li>
+          </ul></div>
+          <div class="tier-hint">Tap to expand <span class="chev">▾</span></div>
+        </div>
+
+        <div class="tier-card tier-gold" tabindex="0" role="button" aria-expanded="false">
+          <div class="tier-rank">Entry Tier</div>
+          <h3>Gold</h3>
+          <div class="tier-price">Open-source, smaller &amp; task-specific models</div>
+          <p class="tier-summary">Cost-efficient access to approved open-source, smaller, and task-specific models with baseline Cisco security and monitoring.</p>
+          <div class="tier-details"><ul>
+            <li>Approved open-source models</li>
+            <li>Smaller &amp; task-specific models</li>
+            <li>Cost-efficient consumption</li>
+            <li>Baseline Cisco security</li>
+            <li>Baseline monitoring</li>
+            <li>Standard support</li>
+          </ul></div>
+          <div class="tier-hint">Tap to expand <span class="chev">▾</span></div>
+        </div>
+      </div>
+
+      <h3 style="color:var(--white);margin-top:40px;">Tier comparison <span class="tag tag-illustrative">Illustrative</span></h3>
+      <table>
+        <tr><th>Dimension</th><th class="td-diamond">Diamond</th><th class="td-platinum">Platinum</th><th class="td-gold">Gold</th></tr>
+        <tr><td>Model access</td><td>Frontier + premium private + agentic</td><td>Broad enterprise + private + specialized</td><td>Open-source + smaller + task-specific</td></tr>
+        <tr><td>Frontier availability</td><td>Priority access</td><td>Limited / on request</td><td>Not included</td></tr>
+        <tr><td>Performance / latency</td><td>Highest / lowest</td><td>Strong</td><td>Standard</td></tr>
+        <tr><td>Reserved capacity</td><td>Yes</td><td>Partial</td><td>On-demand</td></tr>
+        <tr><td>Security &amp; data isolation</td><td>Advanced</td><td>Strong</td><td>Baseline</td></tr>
+        <tr><td>Governance controls</td><td>Advanced</td><td>Standard-plus</td><td>Baseline</td></tr>
+        <tr><td>Observability depth</td><td>Deep</td><td>Solid</td><td>Baseline monitoring</td></tr>
+        <tr><td>AI assurance depth</td><td>Advanced</td><td>Standard</td><td>Baseline</td></tr>
+        <tr><td>Support &amp; SLA</td><td>Highest</td><td>Enterprise</td><td>Standard</td></tr>
+      </table>
+      <p style="font-size:13px;color:var(--text-dim);margin-top:12px;">Tiers may also vary by geographic availability. Diamond frontier pairing reflects public signals that OpenAI and Anthropic are building their own data centers; no participation is implied.</p>
+
+      <div class="section-head" style="margin-top:52px;">
+        <div class="eyebrow">Token Definition</div>
+        <h2 class="section-title">What is one token? <span class="tag tag-hypothesis">Working Hypothesis</span></h2>
+        <p class="section-subtitle">The exact definition of a Cisco Secure AI Token has not been finalized. This is a major design decision requiring validation — no single definition is chosen here.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h4>Candidate definitions</h4><ul><li>Normalized AI-consumption unit</li><li>Compute-based unit</li><li>Model-inference unit</li><li>Workload-based unit</li><li>Outcome-based unit</li><li>Blended (model + infrastructure cost)</li></ul></div>
+        <div class="card"><h4>Should abstract across</h4><ul><li>Models · GPUs · providers</li><li>Regions · performance levels</li><li>Context sizes · workload types</li><li>Security requirements</li><li>Consumption costs</li></ul></div>
+        <div class="card"><h4>Design goal</h4><p style="font-size:13.5px;">A single, portable unit that hides infrastructure and model complexity from the enterprise buyer while remaining fair and auditable for partner settlement.</p></div>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="mor">← Merchant of Record</button><button class="btn btn-primary" data-goto="lifecycle">Next: Lifecycle →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- LIFECYCLE -->
+<div class="page" id="page-lifecycle">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">How It Works</div>
+        <h2 class="section-title">Token Lifecycle</h2>
+        <p class="section-subtitle">Illustrative end-to-end flow from purchase through optimization.</p>
+      </div>
+      <div class="lifecycle">
+        <div class="lc-step"><div class="lc-num">1</div><h4>Purchase</h4><p>Enterprise buys Cisco Secure AI Tokens.</p></div>
+        <div class="lc-step"><div class="lc-num">2</div><h4>Assign</h4><p>Tokens assigned to org, team, workload, or app.</p></div>
+        <div class="lc-step"><div class="lc-num">3</div><h4>Policy</h4><p>Identity &amp; policy determine permitted usage.</p></div>
+        <div class="lc-step"><div class="lc-num">4</div><h4>Select / Route</h4><p>Model selected or dynamically routed.</p></div>
+        <div class="lc-step"><div class="lc-num">5</div><h4>Assign Capacity</h4><p>Infrastructure capacity assigned.</p></div>
+        <div class="lc-step"><div class="lc-num">6</div><h4>Run</h4><p>The workload runs.</p></div>
+        <div class="lc-step"><div class="lc-num">7</div><h4>Secure</h4><p>Cisco security protects the transaction.</p></div>
+        <div class="lc-step"><div class="lc-num">8</div><h4>Assure</h4><p>Galileo evaluates AI quality &amp; behavior.</p></div>
+        <div class="lc-step"><div class="lc-num">9</div><h4>Observe</h4><p>Splunk observes infra, apps, security, consumption.</p></div>
+        <div class="lc-step"><div class="lc-num">10</div><h4>Measure</h4><p>Token usage is measured.</p></div>
+        <div class="lc-step"><div class="lc-num">11</div><h4>Attribute</h4><p>Usage attributed to ecosystem partners.</p></div>
+        <div class="lc-step"><div class="lc-num">12</div><h4>Report</h4><p>Customer reporting generated.</p></div>
+        <div class="lc-step"><div class="lc-num">13</div><h4>Settle</h4><p>Partner settlement calculated.</p></div>
+        <div class="lc-step"><div class="lc-num">14</div><h4>Optimize</h4><p>Customers optimize future selection.</p></div>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="tiers">← Token Tiers</button><button class="btn btn-primary" data-goto="whycisco">Next: Why Cisco →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- WHY CISCO -->
+<div class="page" id="page-whycisco">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Value Proposition</div>
+        <h2 class="section-title">Why Cisco Wins</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><div class="icon">🌐</div><h3>Trusted Data-Center Infrastructure</h3><p style="font-size:13.5px;">Cisco switching and networking as the fabric for AI clusters, neocloud environments, model-provider data centers, enterprise private AI, and distributed inference — not just branch routers and appliances, but large-scale data-center switching.</p></div>
+        <div class="card"><div class="icon">🛡️</div><h3>Security by Design</h3><p style="font-size:13.5px;">Built in, not bolted on.</p><div class="chip-row"><span class="chip">Network security</span><span class="chip">Firewalls</span><span class="chip">Identity &amp; access</span><span class="chip">Zero trust</span><span class="chip">Segmentation</span><span class="chip">Secure connectivity</span><span class="chip">SD-WAN</span><span class="chip">Workload protection</span><span class="chip">Data-policy enforcement</span><span class="chip">Threat detection</span><span class="chip">Model-access controls</span></div></div>
+        <div class="card"><div class="icon">🧪</div><h3>AI Assurance — Galileo</h3><p style="font-size:13.5px;">The AI-quality lens for the ecosystem.</p><div class="chip-row"><span class="chip">Model quality</span><span class="chip">Hallucinations</span><span class="chip">Drift</span><span class="chip">Prompt performance</span><span class="chip">Agent behavior</span><span class="chip">Reliability</span><span class="chip">Safety</span><span class="chip">Policy adherence</span><span class="chip">Retrieval quality</span><span class="chip">Model comparison</span></div></div>
+        <div class="card"><div class="icon">📊</div><h3>Enterprise Observability — Splunk</h3><p style="font-size:13.5px;">The infrastructure, application, security, and operational lens.</p><div class="chip-row"><span class="chip">Token usage</span><span class="chip">Consumption patterns</span><span class="chip">Infra performance</span><span class="chip">Security events</span><span class="chip">App behavior</span><span class="chip">Cost allocation</span><span class="chip">Capacity</span><span class="chip">Service levels</span><span class="chip">Partner activity</span></div></div>
+        <div class="card"><div class="icon">📦</div><h3>Commercial Reach</h3><p style="font-size:13.5px;">GPL, Cisco's sales organization, partners, global relationships, existing agreements, financing/procurement motions, and co-selling.</p></div>
+        <div class="card"><div class="icon">🔄</div><h3>Model Flexibility &amp; Ecosystem Trust</h3><p style="font-size:13.5px;">Customers choose models by workload, quality, price, latency, security, data, geography, and compliance. Cisco qualifies models and infrastructure against common requirements.</p></div>
+      </div>
+      <div class="callout"><p><strong style="color:var(--white);">The distinction:</strong> Galileo provides the AI-quality and model-behavior lens. Splunk provides the broader infrastructure, application, security, consumption, and operational lens.</p></div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="lifecycle">← Lifecycle</button><button class="btn btn-primary" data-goto="programs">Next: Partner Programs →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- PROGRAMS -->
+<div class="page" id="page-programs">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Partner Programs</div>
+        <h2 class="section-title">Neocloud &amp; Model Builder Programs</h2>
+        <p class="section-subtitle">An existing neocloud design-partner initiative could evolve or be renamed as part of the Cisco Secure AI Tokens strategy, alongside a complementary model-builder program.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><h3>Neocloud Partner Program — Benefits</h3><ul><li>Early technical integration</li><li>Preferred ecosystem participation</li><li>Joint architecture development</li><li>Cisco infrastructure alignment</li><li>Enterprise demand generation</li><li>Cisco sales-channel access &amp; co-selling</li><li>Validated reference architectures</li><li>Inclusion in approved capacity pools</li><li>Model-builder introductions</li><li>Ecosystem visibility &amp; preferred-provider designation</li></ul></div>
+        <div class="card"><h3>Neocloud Partner Program — Requirements</h3><ul><li>Cisco-aligned data-center architecture</li><li>Security &amp; compliance validation</li><li>Capacity &amp; service-level commitments</li><li>Usage-reporting &amp; token-metering integration</li><li>Splunk observability integration</li><li>Galileo / AI-assurance integration</li><li>Enterprise support readiness</li><li>Transparent infrastructure economics</li><li>Workload portability &amp; geographic availability</li><li>Operational maturity</li></ul></div>
+        <div class="card"><h3>Model Builder Program — Benefits</h3><ul><li>Access to Cisco enterprise customers</li><li>Cisco as merchant of record</li><li>Reduced contracting / billing / procurement friction</li><li>Access to qualified neocloud infrastructure</li><li>Integrated security, observability &amp; AI assurance</li><li>Enterprise distribution</li><li>Token-based monetization</li><li>Potential co-selling &amp; easier deployment</li></ul></div>
+        <div class="card"><h3>Model Builder Program — Requirements</h3><ul><li>Model-quality &amp; safety validation</li><li>Security review</li><li>Usage-metering integration</li><li>Support commitments &amp; documentation</li><li>Performance benchmarks</li><li>Data-handling &amp; compliance readiness</li><li>Model-version management</li><li>Galileo integration</li><li>Enterprise service levels</li></ul></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-dim);margin-top:16px;">Illustrative candidates for early qualification include Qumulus, Cirrascale, and Massed Compute (neocloud) — illustrative only; no participation implied.</p>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="whycisco">← Why Cisco</button><button class="btn btn-primary" data-goto="flywheel">Next: Flywheel →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- FLYWHEEL -->
+<div class="page" id="page-flywheel">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Growth Logic</div>
+        <h2 class="section-title">Strategic Flywheel</h2>
+        <p class="section-subtitle">Each turn reinforces the next — capacity, choice, demand, and Cisco pull-through compound as the ecosystem grows.</p>
+      </div>
+      <div class="flywheel">
+        <svg viewBox="0 0 100 100"><circle class="fw-ring spin" cx="50" cy="50" r="40"/></svg>
+        <div class="fw-node" style="top:6%;left:50%;"><span class="fw-i">1</span><br>More neoclouds → capacity &amp; reach</div>
+        <div class="fw-node" style="top:26%;left:88%;"><span class="fw-i">2</span><br>More model builders → more choice</div>
+        <div class="fw-node" style="top:60%;left:94%;"><span class="fw-i">3</span><br>More choice → more enterprises</div>
+        <div class="fw-node" style="top:90%;left:72%;"><span class="fw-i">4</span><br>More enterprises → more token demand</div>
+        <div class="fw-node" style="top:94%;left:28%;"><span class="fw-i">5</span><br>More demand → more utilization</div>
+        <div class="fw-node" style="top:60%;left:6%;"><span class="fw-i">6</span><br>Utilization → partner economics</div>
+        <div class="fw-node" style="top:26%;left:12%;"><span class="fw-i">7</span><br>Demand drives Cisco net/sec/sw</div>
+      </div>
+      <div class="callout"><p>Cisco's commercial reach attracts additional ecosystem partners (8), and the ecosystem becomes more valuable as more participants join (9).</p></div>
+
+      <div class="section-head" style="margin-top:44px;">
+        <div class="eyebrow">Illustrative — Not Forecasts</div>
+        <h2 class="section-title">Cisco Growth Motions</h2>
+        <div class="tag-row"><span class="tag tag-conceptual">Conceptual</span></div>
+      </div>
+      <div class="motion-grid">
+        <div class="motion-card"><span class="dot"></span>Secure AI Token sales</div>
+        <div class="motion-card"><span class="dot"></span>Data-center switching</div>
+        <div class="motion-card"><span class="dot"></span>Networking</div>
+        <div class="motion-card"><span class="dot"></span>Security products</div>
+        <div class="motion-card"><span class="dot"></span>SD-WAN &amp; secure connectivity</div>
+        <div class="motion-card"><span class="dot"></span>Splunk licensing &amp; consumption</div>
+        <div class="motion-card"><span class="dot"></span>Galileo &amp; AI assurance</div>
+        <div class="motion-card"><span class="dot"></span>AI governance</div>
+        <div class="motion-card"><span class="dot"></span>Support &amp; professional services</div>
+        <div class="motion-card"><span class="dot"></span>Model qualification</div>
+        <div class="motion-card"><span class="dot"></span>Partner onboarding</div>
+        <div class="motion-card"><span class="dot"></span>Neocloud infrastructure growth</div>
+        <div class="motion-card"><span class="dot"></span>Enterprise marketplace distribution</div>
+        <div class="motion-card"><span class="dot"></span>Capacity orchestration</div>
+        <div class="motion-card"><span class="dot"></span>Private AI deployments</div>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="programs">← Partner Programs</button><button class="btn btn-primary" data-goto="architecture">Next: Architecture →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ARCHITECTURE -->
+<div class="page" id="page-architecture">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Technical Architecture</div>
+        <h2 class="section-title">Layered reference architecture <span class="tag tag-conceptual">Conceptual</span></h2>
+      </div>
+      <div class="arch-layer"><h4>Enterprise Experience Layer</h4><div class="chip-row"><span class="chip">Customer portal</span><span class="chip">APIs</span><span class="chip">Token wallet</span><span class="chip">Usage dashboards</span><span class="chip">Billing views</span><span class="chip">Model catalog</span><span class="chip">Workload controls</span></div></div>
+      <div class="arch-layer"><h4>Cisco Orchestration Layer</h4><div class="chip-row"><span class="chip">Identity</span><span class="chip">Entitlements</span><span class="chip">Policy</span><span class="chip">Token metering</span><span class="chip">Model routing</span><span class="chip">Infrastructure routing</span><span class="chip">Partner attribution</span><span class="chip">Billing</span><span class="chip">Partner settlement</span><span class="chip">Governance</span><span class="chip">Support workflows</span></div></div>
+      <div class="arch-layer"><h4>Assurance &amp; Observability Layer</h4><div class="chip-row"><span class="chip">Galileo AI assurance</span><span class="chip">Splunk observability</span><span class="chip">Security analytics</span><span class="chip">Cost &amp; usage reporting</span><span class="chip">Model evaluations</span><span class="chip">Infrastructure monitoring</span></div></div>
+      <div class="arch-layer"><h4>Security &amp; Networking Layer</h4><div class="chip-row"><span class="chip">Cisco security</span><span class="chip">Firewalls</span><span class="chip">Segmentation</span><span class="chip">Zero trust</span><span class="chip">SD-WAN</span><span class="chip">Secure connectivity</span><span class="chip">Data-center switching</span><span class="chip">Workload protection</span></div></div>
+      <div class="arch-layer"><h4>Model Layer</h4><div class="chip-row"><span class="chip">Frontier models</span><span class="chip">Private models</span><span class="chip">Specialized models</span><span class="chip">Open-source models</span><span class="chip">Agentic systems</span></div></div>
+      <div class="arch-layer"><h4>Infrastructure Layer</h4><div class="chip-row"><span class="chip">Participating neoclouds</span><span class="chip">Model-provider data centers</span><span class="chip">Cisco-enabled AI clusters</span><span class="chip">Enterprise private infrastructure</span></div></div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="flywheel">← Flywheel</button><button class="btn btn-primary" data-goto="pilot">Next: Pilot →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- PILOT -->
+<div class="page" id="page-pilot">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Recommended Pilot</div>
+        <h2 class="section-title">A focused, controlled pilot</h2>
+      </div>
+      <div class="pilot-arch">
+        <div class="pilot-col"><h4>Supply</h4><p>1 participating neocloud</p></div>
+        <div class="pilot-col"><h4>Models</h4><p>1 established/frontier provider + 1 smaller specialized builder</p></div>
+        <div class="pilot-col"><h4>Demand</h4><p>2–3 enterprise design customers</p></div>
+      </div>
+      <div class="pilot-layer">Basic token system · Entitlements · Usage metering · Cisco security · Galileo AI-quality · Splunk observability · Partner attribution · Preliminary settlement</div>
+
+      <div class="grid-2">
+        <div class="card"><h3>Suggested Workloads</h3><ul><li>Enterprise coding assistant</li><li>Customer-support agent</li><li>Document intelligence</li><li>Security operations assistant</li><li>Private enterprise knowledge assistant</li><li>IT operations agent</li></ul></div>
+        <div class="card"><h3>Success Metrics</h3><ul><li>Token &amp; model adoption / utilization</li><li>Infrastructure utilization</li><li>Deployment speed · reliability · latency</li><li>Security-policy compliance</li><li>Model-quality &amp; hallucination rates</li><li>Cost transparency · usage-attribution accuracy</li><li>Customer &amp; partner satisfaction</li><li>Pull-through of Cisco infra, security &amp; software</li><li>Operational support burden</li></ul></div>
+      </div>
+
+      <h3 style="color:var(--white);margin-top:36px;">Pilot Commercial Flow</h3>
+      <ol class="steps">
+        <li>Cisco sells a limited token allocation to enterprise design customers.</li>
+        <li>Customers consume approved models.</li>
+        <li>Workloads run on an approved neocloud.</li>
+        <li>Token usage is captured.</li>
+        <li>Model and infrastructure usage are attributed.</li>
+        <li>Cisco invoices the customer.</li>
+        <li>Cisco tests a partner-settlement process.</li>
+        <li>Cisco evaluates commercial, technical, legal, and accounting feasibility.</li>
+      </ol>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="architecture">← Architecture</button><button class="btn btn-primary" data-goto="questions">Next: Open Questions →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- QUESTIONS -->
+<div class="page" id="page-questions">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Executive Working Session</div>
+        <h2 class="section-title">Key Open Questions</h2>
+        <p class="section-subtitle">Expand each group to work through the foundational decisions.</p>
+      </div>
+      <div class="qa-group">
+        <h3>Token Design</h3>
+        <details class="qa"><summary>What exactly does one Cisco Secure AI Token represent?</summary><div class="qa-body">The fundamental unit of value must be defined before pricing, packaging, or billing.</div></details>
+        <details class="qa"><summary>Is the token based on compute, inference, model usage, time, or outcomes?</summary><div class="qa-body">Each option has different fairness, transparency, and settlement implications.</div></details>
+        <details class="qa"><summary>How are differences between models — and between GPUs / infrastructure — normalized?</summary><div class="qa-body">Normalization is central to a portable, provider-agnostic unit.</div></details>
+        <details class="qa"><summary>Can tokens move across models and providers? Do they expire? Can customers reserve capacity?</summary><div class="qa-body">Portability, expiration, and reservation rules require technical and commercial design.</div></details>
+      </div>
+      <div class="qa-group">
+        <h3>Commercial Model</h3>
+        <details class="qa"><summary>Who owns pricing?</summary><div class="qa-body">Requires alignment across BU, finance, and sales.</div></details>
+        <details class="qa"><summary>How are model builders and neocloud providers compensated, and what does Cisco retain?</summary><div class="qa-body">A partner-powered settlement framework, not simple revenue share.</div></details>
+        <details class="qa"><summary>How are unused capacity, discounts, and settlement frequency handled?</summary><div class="qa-body">Settlement calculation and payment cadence to be defined per partner agreement.</div></details>
+      </div>
+      <div class="qa-group">
+        <h3>Merchant-of-Record Responsibilities</h3>
+        <details class="qa"><summary>Which Cisco entity acts as merchant of record; who owns invoicing, refunds, and credits?</summary><div class="qa-body">Legal entity, invoicing, and credit ownership must be established.</div></details>
+        <details class="qa"><summary>Who manages disputes, contractual liability, and usage discrepancies?</summary><div class="qa-body">Liability and discrepancy ownership need clear allocation.</div></details>
+        <details class="qa"><summary>How are taxes handled and revenue recognized?</summary><div class="qa-body">Tax and revenue-recognition treatment requires finance/legal validation.</div></details>
+      </div>
+      <div class="qa-group">
+        <h3>Technical Model</h3>
+        <details class="qa"><summary>Who operates token metering; how are workloads routed and model versions managed?</summary><div class="qa-body">Metering ownership and routing logic are core architecture decisions.</div></details>
+        <details class="qa"><summary>How are failover, capacity reservation, data isolation, reconciliation, and portability handled?</summary><div class="qa-body">Operational resilience and data isolation must be designed and tested.</div></details>
+      </div>
+      <div class="qa-group">
+        <h3>Security &amp; Governance</h3>
+        <details class="qa"><summary>What minimum security requirements apply, and what data can models retain?</summary><div class="qa-body">Baseline security bar and data-retention rules to be defined.</div></details>
+        <details class="qa"><summary>How are identity/access enforced, regulated workloads handled, and models/neoclouds approved?</summary><div class="qa-body">Approval, enforcement, and violation-handling processes required.</div></details>
+      </div>
+      <div class="qa-group">
+        <h3>Sales &amp; GPL</h3>
+        <details class="qa"><summary>What appears on GPL — one SKU or multiple? How do tiers map to SKUs?</summary><div class="qa-body">SKU structure and tier mapping to be defined with commercial teams.</div></details>
+        <details class="qa"><summary>How do channel compensation, renewals, and capacity commitments work; which teams own the motion?</summary><div class="qa-body">Sales ownership and comp mechanics need alignment.</div></details>
+      </div>
+      <div class="qa-group">
+        <h3>Support</h3>
+        <details class="qa"><summary>Who owns the customer-support experience, and how are incidents divided?</summary><div class="qa-body">Support ownership across Cisco, model builders, and neoclouds must be clear.</div></details>
+        <details class="qa"><summary>What support levels belong in each tier; who owns model-quality vs. infrastructure-outage issues?</summary><div class="qa-body">Tier-based support and issue ownership to be defined.</div></details>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="pilot">← Pilot</button><button class="btn btn-primary" data-goto="risks">Next: Risks →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- RISKS -->
+<div class="page" id="page-risks">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Balanced View</div>
+        <h2 class="section-title">Risks &amp; Considerations</h2>
+        <p class="section-subtitle">Not reasons to stop — areas that must be validated through a structured pilot and cross-functional review.</p>
+      </div>
+      <div class="risk-grid">
+        <div class="risk-card">Merchant-of-record liability</div>
+        <div class="risk-card">Revenue-recognition complexity</div>
+        <div class="risk-card">Tax complexity</div>
+        <div class="risk-card">Partner-settlement complexity</div>
+        <div class="risk-card">Model-price volatility</div>
+        <div class="risk-card">Infrastructure-price volatility</div>
+        <div class="risk-card">Capacity shortages</div>
+        <div class="risk-card">Customer-data handling</div>
+        <div class="risk-card">Regulatory exposure</div>
+        <div class="risk-card">Model safety</div>
+        <div class="risk-card">Model reliability</div>
+        <div class="risk-card">Usage-metering accuracy</div>
+        <div class="risk-card">Vendor concentration</div>
+        <div class="risk-card">Support complexity</div>
+        <div class="risk-card">Channel conflict</div>
+        <div class="risk-card">Customer lock-in concerns</div>
+        <div class="risk-card">Token normalization challenges</div>
+        <div class="risk-card">Cross-border data requirements</div>
+        <div class="risk-card">Service-level accountability</div>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="questions">← Open Questions</button><button class="btn btn-primary" data-goto="next">Next: Next Step →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- NEXT STEP -->
+<div class="page" id="page-next">
+  <section>
+    <div class="container">
+      <div class="cta-block">
+        <div class="eyebrow" style="justify-content:center;display:flex;">Proposed Next Step</div>
+        <h2>Form a small cross-functional working team</h2>
+        <p style="max-width:720px;margin:0 auto;">To define the token unit, merchant-of-record structure, model-builder and neocloud economics, partner settlement, technical architecture, security requirements, Galileo and Splunk integration, GPL path, pilot customers and partners, legal and accounting requirements, and governance model.</p>
+        <div class="chip-row" style="justify-content:center;margin:22px 0;">
+          <span class="chip">Token unit</span><span class="chip">MoR structure</span><span class="chip">Model economics</span><span class="chip">Neocloud economics</span><span class="chip">Settlement</span><span class="chip">Architecture</span><span class="chip">Security</span><span class="chip">Galileo</span><span class="chip">Splunk</span><span class="chip">GPL path</span><span class="chip">Pilot customers</span><span class="chip">Pilot partners</span><span class="chip">Legal &amp; accounting</span><span class="chip">Governance</span>
+        </div>
+        <p style="max-width:720px;margin:0 auto;">The immediate goal is not to finalize the full global business model. It is to determine whether Cisco can validate a partner-powered, merchant-of-record, secure AI-consumption ecosystem through a controlled pilot.</p>
+        <p class="closing">"Cisco Secure AI Tokens could transform Cisco from an infrastructure and security provider supporting AI environments into the trusted commercial and operational layer through which enterprises consume AI."</p>
+      </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="risks">← Risks</button><button class="btn btn-primary" id="printBtn2">Print / Export PDF</button></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>Cisco Secure AI Tokens — Internal Strategy &amp; Working-Session Draft · Not for external distribution</div>
+    <div class="footer-tags"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-illustrative">Illustrative</span><span class="tag tag-validation">Subject to Validation</span><span class="tag tag-hypothesis">Working Hypothesis</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pages = document.querySelectorAll('.page');
+  var navBtns = document.querySelectorAll('nav.nav-links button');
+
+  function showPage(id){
+    pages.forEach(function(p){ p.classList.toggle('active', p.id === 'page-'+id); });
+    navBtns.forEach(function(b){ b.classList.toggle('active', b.dataset.page === id); });
+    window.scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'});
+    updateProgress();
+  }
+
+  navBtns.forEach(function(b){ b.addEventListener('click', function(){ showPage(b.dataset.page); }); });
+  document.querySelectorAll('[data-goto]').forEach(function(el){
+    el.addEventListener('click', function(){ showPage(el.dataset.goto); });
+  });
+
+  // Progress bar based on scroll within active page
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+
+  // Tier cards expand
+  document.querySelectorAll('.tier-card').forEach(function(card){
+    function toggle(){
+      var ex = card.classList.toggle('expanded');
+      card.setAttribute('aria-expanded', ex ? 'true':'false');
+    }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+    });
+  });
+
+  // Print
+  ['printBtn','printBtn2'].forEach(function(id){
+    var b = document.getElementById(id);
+    if(b) b.addEventListener('click', function(){ window.print(); });
+  });
+
+  updateProgress();
+})();
+</script>
 
 </body>
 </html>
