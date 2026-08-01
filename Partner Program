@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cisco Secure AI Harness — Strategy &amp; Working Session</title>
-<meta name="description" content="Cisco Secure AI Harness: a conceptual, merchant-of-record model for secure enterprise AI adoption across neocloud and frontier infrastructure providers.">
+<title>Cisco Secure Harness — Strategy &amp; Working Session</title>
+<meta name="description" content="Cisco Secure Harness: a conceptual model for secure enterprise AI adoption across neocloud and frontier infrastructure providers.">
 <style>
   :root{
     --navy-900:#050b16;--navy-800:#0a1628;--navy-700:#0f2038;--navy-600:#152c4a;
@@ -120,6 +120,9 @@
   .motion-card-lg h3{color:var(--white);font-size:19px;}
   .motion-card-lg ol{padding-left:20px;margin-top:10px;display:flex;flex-direction:column;gap:8px;}
   .motion-card-lg li{font-size:13.5px;color:var(--text-muted);}
+  .motion-card-lg .co-row{margin-top:14px;}
+  .co-pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--border-strong);color:var(--white);}
+  .co-row{display:flex;gap:7px;flex-wrap:wrap;}
 
   .lifecycle{display:flex;overflow-x:auto;padding-bottom:12px;}
   .lc-step{flex:0 0 186px;background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);padding:15px 13px;margin-right:26px;position:relative;}
@@ -129,36 +132,6 @@
   .lc-num{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));color:#04121f;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:13px;}
   .lc-step h4{font-size:13.5px;color:var(--white);margin-bottom:5px;}
   .lc-step p{font-size:12px;margin:0;}
-
-  .tier-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .tier-card{border-radius:var(--radius-lg);padding:26px;cursor:pointer;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;background:var(--navy-800);}
-  .tier-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card);}
-  .tier-diamond{border-top:4px solid var(--diamond);background:linear-gradient(160deg,rgba(95,200,239,.16),rgba(0,194,179,.05));}
-  .tier-platinum{border-top:4px solid var(--platinum);background:linear-gradient(160deg,rgba(201,211,220,.12),rgba(255,255,255,.02));}
-  .tier-gold{border-top:4px solid var(--gold);background:linear-gradient(160deg,rgba(212,175,55,.18),rgba(212,175,55,.03));}
-  .tier-rank{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:700;}
-  .tier-card h3{font-size:24px;margin:4px 0 8px;color:var(--white);}
-  .tier-price{font-size:12.5px;color:var(--teal-light);font-weight:700;margin-bottom:10px;}
-  .tier-summary{font-size:13.5px;color:var(--text-muted);}
-  .tier-details{max-height:0;overflow:hidden;transition:max-height .35s,opacity .3s;opacity:0;}
-  .tier-card.expanded .tier-details{max-height:700px;opacity:1;margin-top:14px;}
-  .tier-details ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
-  .tier-details li{font-size:13px;color:var(--text-muted);padding-left:18px;position:relative;}
-  .tier-details li::before{content:"›";position:absolute;left:0;color:var(--teal-light);font-weight:800;}
-  .tier-hint{font-size:12px;color:var(--text-dim);margin-top:12px;display:flex;align-items:center;gap:6px;}
-  .tier-hint .chev{transition:transform .3s;}
-  .tier-card.expanded .chev{transform:rotate(180deg);}
-  .co-pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--border-strong);color:var(--white);}
-  .co-row{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0;}
-
-  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px;}
-  th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top;}
-  th{background:rgba(4,159,217,.12);color:var(--white);}
-  td{color:var(--text-muted);}
-  tr:nth-child(even) td{background:rgba(255,255,255,.02);}
-  .td-diamond{color:var(--diamond);font-weight:700;}
-  .td-platinum{color:var(--platinum-soft);font-weight:700;}
-  .td-gold{color:var(--gold-soft);font-weight:700;}
 
   .motion-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
   .motion-card{background:var(--navy-800);border:1px solid var(--border);border-radius:var(--radius-md);padding:15px 18px;font-size:13.5px;font-weight:600;color:var(--white);display:flex;align-items:center;gap:11px;}
@@ -194,7 +167,7 @@
   .page-foot{display:flex;justify-content:space-between;gap:14px;margin-top:38px;}
 
   @media (max-width:920px){
-    .grid-2,.grid-3,.tier-cards,.pilot-arch{grid-template-columns:1fr;}
+    .grid-2,.grid-3,.pilot-arch{grid-template-columns:1fr;}
     .page-tabs{justify-content:flex-start;}
   }
   @media (max-width:600px){
@@ -212,10 +185,9 @@
     body{background:#fff;color:#111;}
     .page{display:block!important;}
     section{border-bottom:none;padding:18px 0;page-break-inside:avoid;}
-    .card,.tier-card,.flow-node,.lc-step,.motion-card,.motion-card-lg,details.qa,.pilot-col,.eco-node,.risk-card,.gate-banner,.stack-pill{background:#fff!important;border:1px solid #ccc!important;color:#111!important;box-shadow:none!important;}
+    .card,.flow-node,.lc-step,.motion-card,.motion-card-lg,details.qa,.pilot-col,.eco-node,.risk-card,.gate-banner,.stack-pill{background:#fff!important;border:1px solid #ccc!important;color:#111!important;box-shadow:none!important;}
     .hero h1{-webkit-text-fill-color:#111;background:none;color:#111;}
     p,li,td{color:#333!important;}
-    .tier-details{max-height:none!important;opacity:1!important;overflow:visible!important;}
     .page-disclaimer{color:#a00!important;}
   }
 </style>
@@ -236,12 +208,12 @@
         </g>
         <text x="52" y="27" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#049fd9" letter-spacing="0.5">cisco</text>
       </svg>
-      <span class="brand-divider"></span> Secure AI Harness
+      <span class="brand-divider"></span> Secure Harness
     </div>
     <div class="page-tabs" id="pageTabs">
       <button data-page="one" class="active">1 · Vision &amp; Model</button>
       <button data-page="two">2 · The Cisco Gate</button>
-      <button data-page="three">3 · Adoption Tiers &amp; Journey</button>
+      <button data-page="three">3 · Merchant of Record</button>
       <button data-page="four">4 · Pilot &amp; Next Step</button>
     </div>
     <div class="nav-cta no-print"><button class="btn btn-ghost" id="printBtn">Print / PDF</button></div>
@@ -260,14 +232,14 @@
         <span class="tag tag-validation">Subject to Validation</span>
       </div>
       <div class="eyebrow">Cisco Internal — Strategy &amp; Working Session</div>
-      <h1>Cisco Secure AI Harness</h1>
-      <p class="lede">A standardized, enterprise-grade model for <strong>secure AI adoption</strong> — Cisco harnesses the enterprise's end-to-end AI journey across approved models and infrastructure providers, acting as the trusted merchant of record and connective layer.</p>
+      <h1>Cisco Secure Harness</h1>
+      <p class="lede">A standardized, enterprise-grade model for <strong>secure AI adoption</strong> — Cisco harnesses the enterprise's end-to-end AI journey across approved models and infrastructure providers, securing and governing the entire experience.</p>
       <div class="hero-actions">
         <button class="btn btn-primary" data-goto="two">See the Cisco Gate</button>
-        <button class="btn btn-ghost" data-goto="three">View Adoption Tiers</button>
+        <button class="btn btn-ghost" data-goto="three">The Commercial Model</button>
       </div>
       <p class="hero-note">Conceptual — Subject to technical, commercial, financial, legal, accounting, tax, and regulatory validation. All company names are illustrative only; no named company has committed to participate.</p>
-      <div class="premise">"Cisco harnesses the secure adoption. Model builders provide the intelligence. Infrastructure providers — neoclouds, or frontier providers on their own hardware — provide the compute. Cisco connects the parties, secures the experience, governs the adoption, and manages the enterprise transaction as merchant of record."</div>
+      <div class="premise">"Cisco harnesses the secure adoption. Model builders provide the intelligence. Infrastructure providers — neoclouds, or frontier providers on their own hardware — provide the compute. Cisco connects the parties, secures the experience, and governs the adoption."</div>
     </div>
   </section>
 
@@ -275,12 +247,12 @@
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Executive Summary</div>
-        <h2 class="section-title">Sell the secure adoption, not a consumption unit</h2>
-        <p class="section-subtitle">Instead of enterprises separately negotiating contracts, security, infrastructure, governance, observability, and support with every model provider and neocloud, Cisco harnesses the entire secure AI adoption process. Enterprises adopt AI through Cisco; workloads run on Cisco-backed infrastructure while Cisco delivers security, networking, observability, assurance, governance, and support — and stands as the merchant of record between the enterprise and the infrastructure provider.</p>
+        <h2 class="section-title">Sell the secure adoption</h2>
+        <p class="section-subtitle">Instead of enterprises separately negotiating contracts, security, infrastructure, governance, observability, and support with every model provider and neocloud, Cisco harnesses the entire secure AI adoption process. Enterprises adopt AI through Cisco; workloads run on Cisco-backed infrastructure while Cisco delivers security, networking, observability, assurance, governance, and support — one trusted enterprise motion, sold through Cisco GPL.</p>
       </div>
       <div class="grid-3">
         <div class="card"><div class="icon">🧭</div><h3>The Harness</h3><p>Cisco owns and guides the secure AI adoption journey end-to-end — the single enterprise motion for adopting AI safely, sold through Cisco GPL.</p></div>
-        <div class="card"><div class="icon">🏭</div><h3>The Cisco Gate</h3><p>The adoption runs on the Cisco-backed stack — switching, security, SD-WAN, Galileo, and Splunk — the "Secure AI Factory" that qualifies any participating build.</p></div>
+        <div class="card"><div class="icon">🏭</div><h3>The Cisco Gate</h3><p>The adoption runs on the Cisco-backed stack — switching, security, SD-WAN, Galileo, and Splunk — the Secure AI Factory that qualifies any participating build.</p></div>
         <div class="card"><div class="icon">📈</div><h3>The Growth Engine</h3><p>Every secure adoption pulls through Cisco data-center switching, security, networking, observability, AI assurance, software, and services.</p></div>
       </div>
     </div>
@@ -291,7 +263,7 @@
       <div class="section-head">
         <div class="eyebrow">Ecosystem Model</div>
         <h2 class="section-title">A three-sided platform</h2>
-        <p class="section-subtitle">Cisco sits at the center as the trusted connective, commercial, and operational layer between enterprise demand, model supply, and infrastructure capacity.</p>
+        <p class="section-subtitle">Cisco sits at the center as the trusted connective, security, and operational layer between enterprise demand, model supply, and infrastructure capacity.</p>
       </div>
       <div class="grid-2" style="align-items:center;">
         <div class="eco-diagram">
@@ -299,7 +271,7 @@
           <div class="eco-node eco-a">Enterprise Customers<small>Adopting AI</small></div>
           <div class="eco-node eco-b">Model Builders<small>Frontier + specialized</small></div>
           <div class="eco-node eco-c">Infrastructure Providers<small>Neoclouds or own HW</small></div>
-          <div class="eco-node eco-hub">Cisco Secure AI Harness<small>Merchant of record</small></div>
+          <div class="eco-node eco-hub">Cisco Secure Harness<small>Trusted layer</small></div>
         </div>
         <div style="display:flex;flex-direction:column;gap:14px;">
           <div class="card"><h4>Enterprise Customers</h4><p style="font-size:13.5px;">One relationship, one adoption motion — with access to approved models plus Cisco security, networking, governance, assurance, observability, and support across the entire adoption journey.</p></div>
@@ -307,32 +279,6 @@
           <div class="card"><div class="tag-row"><span class="tag tag-illustrative">Illustrative only</span></div><h4>Infrastructure Providers</h4><p style="font-size:13.5px;">Neoclouds hosting open/specialized models on Cisco-backed builds — or frontier providers (OpenAI, Anthropic) building their own hardware and serving as their own infrastructure provider.</p><div class="chip-row"><span class="chip">CoreWeave</span><span class="chip">Nebius</span><span class="chip">Qumulus</span><span class="chip">Cirrascale</span><span class="chip">Massed Compute</span><span class="chip">Frontier own-HW</span></div></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section-alt">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Commercial Model</div>
-        <h2 class="section-title">Cisco as Merchant of Record</h2>
-        <p class="section-subtitle">Cisco owns the enterprise-facing transaction for the secure AI adoption — contracting, invoicing, governance, and provider settlement — sitting between the enterprise and the infrastructure provider (a neocloud, or a frontier provider on its own hardware).</p>
-        <div class="tag-row"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-validation">Subject to Validation</span></div>
-      </div>
-      <div class="flow-label">Forward Flow — Adoption &amp; Delivery</div>
-      <div class="flow-row">
-        <div class="flow-node">Enterprise Customer<small>Adopting AI securely</small></div>
-        <div class="flow-node">Adopts via Cisco Secure AI Harness<small>Cisco GPL motion</small></div>
-        <div class="flow-node hub">Cisco<small>Merchant of Record</small></div>
-        <div class="flow-node">Approved Model Builder<small>Frontier or specialized</small></div>
-        <div class="flow-node">Infrastructure Provider<small>Neocloud or own HW</small></div>
-      </div>
-      <div class="flow-label">Return Flow — Governance &amp; Settlement</div>
-      <div class="flow-row return">
-        <div class="flow-node">Provider Settlement<small>Model + infrastructure</small></div>
-        <div class="flow-node">Adoption Attribution<small>By build &amp; model</small></div>
-        <div class="flow-node hub">Governed Secure Adoption<small>Assurance &amp; observability</small></div>
-      </div>
-      <div class="callout"><p><strong style="color:var(--white);">Positioning:</strong> a three-sided, partner-powered secure AI adoption platform — not a resale, not a consumption-unit sale. Cisco is the merchant of record between the enterprise and the infrastructure provider. Economics remain subject to finance, legal, tax, accounting, and revenue-recognition validation.</p></div>
       <div class="page-foot no-print"><span></span><button class="btn btn-primary" data-goto="two">Next: The Cisco Gate →</button></div>
       <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
@@ -378,8 +324,9 @@
             <li>Provider builds its own data-center clusters on <strong>Cisco switching</strong>, security, SD-WAN, Galileo, and Splunk.</li>
             <li>The provider <em>is</em> its own infrastructure provider on that Cisco-backed build.</li>
             <li>The build qualifies as a Secure AI Factory.</li>
-            <li>Enterprises adopt frontier models there — anchoring the Diamond tier — with Cisco as merchant of record.</li>
+            <li>Enterprises adopt those frontier models securely through Cisco.</li>
           </ol>
+          <div class="co-row"><span class="co-pill">OpenAI — Frontier</span><span class="co-pill">Anthropic — Claude</span></div>
         </div>
         <div class="motion-card-lg">
           <span class="badge badge-b">Motion B · Neoclouds</span>
@@ -388,103 +335,21 @@
             <li>Neocloud purchases the full Cisco backbone (switching, security, SD-WAN, Galileo, Splunk).</li>
             <li>The neocloud <strong>hosts a chosen model provider</strong> (open or specialized) on that infrastructure.</li>
             <li>The build qualifies the neocloud to deliver Secure AI Adoption.</li>
-            <li>Enterprises adopt those models — powering the Platinum and Gold tiers — with Cisco as merchant of record.</li>
+            <li>Enterprises adopt those models securely through Cisco.</li>
           </ol>
+          <div class="co-row"><span class="co-pill">Poolside</span><span class="co-pill">Reflection AI</span><span class="co-pill">Mistral</span><span class="co-pill">Cohere</span><span class="co-pill">AI21 Labs</span><span class="co-pill">Open-source</span></div>
         </div>
       </div>
 
-      <div class="callout"><p><strong style="color:var(--white);">Enterprise motion:</strong> Cisco enterprise sellers position and sell the Secure AI Harness adoption offer through <strong>Cisco GPL</strong> — a single, familiar commercial motion that keeps AEs incented and pulls through the Cisco stack.</p></div>
+      <div class="callout"><p><strong style="color:var(--white);">Enterprise motion:</strong> Cisco enterprise sellers position and sell the Secure Harness adoption offer through <strong>Cisco GPL</strong> — a single, familiar commercial motion that keeps AEs incented and pulls through the Cisco stack.</p></div>
 
       <div class="grid-3">
         <div class="card"><div class="icon">🌐</div><h3>Infrastructure Pull-Through</h3><p style="font-size:13.5px;">Every qualifying build drives large-scale Cisco data-center switching and networking — not just branch and appliance sales.</p></div>
         <div class="card"><div class="icon">🛡️</div><h3>Security by Design</h3><p style="font-size:13.5px;">Firewalls, identity, zero trust, segmentation, and SD-WAN are built into the factory, not added later.</p></div>
         <div class="card"><div class="icon">🔬</div><h3>Assurance &amp; Observability</h3><p style="font-size:13.5px;"><strong>Galileo</strong> is the AI-quality lens (model quality, hallucinations, drift, safety). <strong>Splunk</strong> is the infrastructure, security, and operational lens.</p></div>
       </div>
-      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="one">← Vision &amp; Model</button><button class="btn btn-primary" data-goto="three">Next: Adoption Tiers &amp; Journey →</button></div>
-      <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
-    </div>
-  </section>
-</div>
 
-<!-- ============ PAGE 3 — ADOPTION TIERS & JOURNEY ============ -->
-<div class="page" id="page-three">
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Adoption Structure</div>
-        <h2 class="section-title">Diamond · Platinum · Gold</h2>
-        <p class="section-subtitle">A conceptual three-tier secure adoption model. Diamond is the highest tier. Click any card to expand. Tier names and scope are conceptual and subject to validation.</p>
-        <div class="tag-row"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-validation">Subject to Validation</span></div>
-      </div>
-      <div class="tier-cards">
-        <div class="tier-card tier-diamond" tabindex="0" role="button" aria-expanded="false">
-          <div class="tier-rank">Highest Tier · Best Option</div>
-          <h3>Diamond</h3>
-          <div class="tier-price">Frontier providers on their own Cisco-built HW</div>
-          <div class="co-row"><span class="co-pill">OpenAI — Frontier</span><span class="co-pill">Anthropic — Claude</span></div>
-          <p class="tier-summary">Secure adoption of leading frontier models on the providers' own Cisco-backed hardware, where the provider is its own infrastructure provider — the deepest Cisco stack.</p>
-          <div class="tier-details"><ul>
-            <li>Leading frontier + premium private models</li>
-            <li>Provider builds &amp; runs its own Cisco-backed HW</li>
-            <li>Reserved capacity · highest performance / lowest latency</li>
-            <li>Advanced governance &amp; data isolation</li>
-            <li>Deep observability &amp; advanced AI assurance</li>
-            <li>Highest support level &amp; SLA</li>
-          </ul></div>
-          <div class="tier-hint">Tap to expand <span class="chev">▾</span></div>
-        </div>
-        <div class="tier-card tier-platinum" tabindex="0" role="button" aria-expanded="false">
-          <div class="tier-rank">Mid Tier</div>
-          <h3>Platinum</h3>
-          <div class="tier-price">Top neolabs with enterprise demand, on neocloud builds</div>
-          <div class="co-row"><span class="co-pill">Poolside</span><span class="co-pill">Reflection AI</span><span class="co-pill">Mistral</span><span class="co-pill">Cohere</span><span class="co-pill">AI21 Labs</span></div>
-          <p class="tier-summary">Secure adoption of leading independent "neolabs" already carrying enterprise demand — specialized, private, and coding/agentic models hosted on Cisco-backed neocloud factories.</p>
-          <div class="tier-details"><ul>
-            <li>Top neolabs: Poolside, Reflection AI, Mistral, Cohere, AI21 Labs (illustrative)</li>
-            <li>Specialized coding, agentic &amp; private models</li>
-            <li>Hosted on Cisco-backed neocloud factories</li>
-            <li>Strong performance profile</li>
-            <li>Strong security &amp; governance</li>
-            <li>Solid observability &amp; AI assurance</li>
-            <li>Enterprise support</li>
-          </ul></div>
-          <div class="tier-hint">Tap to expand <span class="chev">▾</span></div>
-        </div>
-        <div class="tier-card tier-gold" tabindex="0" role="button" aria-expanded="false">
-          <div class="tier-rank">Entry Tier</div>
-          <h3>Gold</h3>
-          <div class="tier-price">Open-source &amp; task-specific models</div>
-          <p class="tier-summary">Cost-efficient secure adoption of approved open-source, smaller, and task-specific models with baseline Cisco security and monitoring.</p>
-          <div class="tier-details"><ul>
-            <li>Approved open-source &amp; smaller models</li>
-            <li>Task-specific models</li>
-            <li>Cost-efficient adoption</li>
-            <li>Baseline Cisco security</li>
-            <li>Baseline monitoring</li>
-            <li>Standard support</li>
-          </ul></div>
-          <div class="tier-hint">Tap to expand <span class="chev">▾</span></div>
-        </div>
-      </div>
-
-      <h3 style="color:var(--white);margin-top:38px;">Tier comparison <span class="tag tag-illustrative">Illustrative</span></h3>
-      <table>
-        <tr><th>Dimension</th><th class="td-diamond">Diamond</th><th class="td-platinum">Platinum</th><th class="td-gold">Gold</th></tr>
-        <tr><td>Model access</td><td>Frontier + premium private</td><td>Top neolabs (Poolside, Reflection AI, Mistral, Cohere, AI21)</td><td>Open-source + task-specific</td></tr>
-        <tr><td>Infrastructure provider</td><td>Frontier provider's own Cisco HW</td><td>Cisco-backed neocloud</td><td>Cisco-backed neocloud</td></tr>
-        <tr><td>Performance / latency</td><td>Highest / lowest</td><td>Strong</td><td>Standard</td></tr>
-        <tr><td>Reserved capacity</td><td>Yes</td><td>Partial</td><td>On-demand</td></tr>
-        <tr><td>Security &amp; governance</td><td>Advanced</td><td>Strong</td><td>Baseline</td></tr>
-        <tr><td>Assurance / observability</td><td>Deep</td><td>Solid</td><td>Baseline</td></tr>
-        <tr><td>Support &amp; SLA</td><td>Highest</td><td>Enterprise</td><td>Standard</td></tr>
-      </table>
-      <p style="font-size:13px;color:var(--text-dim);margin-top:12px;">Diamond reflects public signals that OpenAI and Anthropic are building their own data centers, making them their own infrastructure providers. Platinum neolabs are illustrative examples of independent providers with current enterprise demand. No participation is implied.</p>
-    </div>
-  </section>
-
-  <section class="section-alt">
-    <div class="container">
-      <div class="section-head">
+      <div class="section-head" style="margin-top:44px;">
         <div class="eyebrow">How It Works</div>
         <h2 class="section-title">Secure Adoption Journey</h2>
         <p class="section-subtitle">Illustrative end-to-end flow from enterprise onboarding through continuous optimization.</p>
@@ -497,10 +362,49 @@
         <div class="lc-step"><div class="lc-num">5</div><h4>Secure</h4><p>Cisco security protects the transaction.</p></div>
         <div class="lc-step"><div class="lc-num">6</div><h4>Assure</h4><p>Galileo evaluates AI quality &amp; behavior.</p></div>
         <div class="lc-step"><div class="lc-num">7</div><h4>Observe</h4><p>Splunk observes infra, security &amp; operations.</p></div>
-        <div class="lc-step"><div class="lc-num">8</div><h4>Attribute</h4><p>Adoption attributed to build &amp; model.</p></div>
-        <div class="lc-step"><div class="lc-num">9</div><h4>Settle</h4><p>Cisco settles provider economics as MoR.</p></div>
-        <div class="lc-step"><div class="lc-num">10</div><h4>Optimize</h4><p>Enterprise expands &amp; optimizes adoption.</p></div>
+        <div class="lc-step"><div class="lc-num">8</div><h4>Optimize</h4><p>Enterprise expands &amp; optimizes adoption.</p></div>
       </div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="one">← Vision &amp; Model</button><button class="btn btn-primary" data-goto="three">Next: Merchant of Record →</button></div>
+      <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PAGE 3 — MERCHANT OF RECORD ============ -->
+<div class="page" id="page-three">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Commercial Model</div>
+        <h2 class="section-title">Cisco as Merchant of Record</h2>
+        <p class="section-subtitle">For the secure AI adoption, Cisco owns the enterprise-facing transaction — contracting, invoicing, governance, and provider settlement — sitting between the enterprise and the infrastructure provider (a neocloud, or a frontier provider on its own hardware).</p>
+        <div class="tag-row"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-validation">Subject to Validation</span></div>
+      </div>
+
+      <div class="flow-label">Forward Flow — Adoption &amp; Delivery</div>
+      <div class="flow-row">
+        <div class="flow-node">Enterprise Customer<small>Adopting AI securely</small></div>
+        <div class="flow-node">Adopts via Cisco Secure Harness<small>Cisco GPL motion</small></div>
+        <div class="flow-node hub">Cisco<small>Merchant of Record</small></div>
+        <div class="flow-node">Approved Model Builder<small>Frontier or specialized</small></div>
+        <div class="flow-node">Infrastructure Provider<small>Neocloud or own HW</small></div>
+      </div>
+
+      <div class="flow-label">Return Flow — Governance &amp; Settlement</div>
+      <div class="flow-row return">
+        <div class="flow-node">Provider Settlement<small>Model + infrastructure</small></div>
+        <div class="flow-node">Adoption Attribution<small>By build &amp; model</small></div>
+        <div class="flow-node hub">Governed Secure Adoption<small>Assurance &amp; observability</small></div>
+      </div>
+
+      <div class="grid-3" style="margin-top:34px;">
+        <div class="card"><div class="icon">🤝</div><h3>What Cisco Owns</h3><ul><li>Enterprise contracting &amp; invoicing</li><li>GPL placement &amp; channel</li><li>Governance &amp; entitlement</li><li>Security-policy enforcement</li><li>Assurance &amp; observability</li><li>Provider settlement</li><li>Customer support</li></ul></div>
+        <div class="card"><div class="icon">🧠</div><h3>What the Model Builder Provides</h3><ul><li>The AI model &amp; intellectual property</li><li>Inference &amp; agentic capability</li><li>Model updates &amp; quality</li><li>Earns from adoption of its model</li></ul></div>
+        <div class="card"><div class="icon">⚡</div><h3>What the Infrastructure Provider Provides</h3><ul><li>GPU compute &amp; hosting on Cisco-backed build</li><li>Capacity &amp; operations</li><li>Neocloud <em>or</em> frontier's own hardware</li><li>Earns from compute / capacity consumed</li></ul></div>
+      </div>
+
+      <div class="callout"><p><strong style="color:var(--white);">What the enterprise buys:</strong> a Cisco-managed secure AI adoption — not a resale and not a consumption unit. Cisco stands as merchant of record between the enterprise and the infrastructure provider, settling model and infrastructure economics behind the scenes. Exact economics, accounting treatment, liability, tax, and revenue recognition remain subject to finance and legal validation.</p></div>
+
       <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="two">← The Cisco Gate</button><button class="btn btn-primary" data-goto="four">Next: Pilot &amp; Next Step →</button></div>
       <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
@@ -514,7 +418,7 @@
       <div class="section-head">
         <div class="eyebrow">Recommended Pilot</div>
         <h2 class="section-title">A focused, controlled pilot</h2>
-        <p class="section-subtitle">Validate the gated, partner-powered, merchant-of-record secure adoption model on a small scale before finalizing the global business model.</p>
+        <p class="section-subtitle">Validate the gated, partner-powered secure adoption model on a small scale before finalizing the global business model.</p>
       </div>
       <div class="pilot-arch">
         <div class="pilot-col"><h4>Supply</h4><p>1 infrastructure provider on a Cisco-backed factory</p></div>
@@ -535,12 +439,12 @@
         <div class="eyebrow">Executive Working Session</div>
         <h2 class="section-title">Key Open Questions</h2>
       </div>
-      <details class="qa"><summary>What exactly is the enterprise buying in the Secure AI Harness adoption offer?</summary><div class="qa-body">The adoption package (Cisco-managed secure adoption + platform) must be defined — infrastructure and model economics settled through Cisco as merchant of record, no separate consumption unit sold.</div></details>
+      <details class="qa"><summary>What exactly is the enterprise buying in the Secure Harness adoption offer?</summary><div class="qa-body">The adoption package (Cisco-managed secure adoption + platform) must be defined — infrastructure and model economics settled through Cisco, no separate consumption unit sold.</div></details>
       <details class="qa"><summary>How are model builders and infrastructure providers compensated, and what does Cisco retain?</summary><div class="qa-body">A partner-powered settlement framework tied to adoption attribution — not a simple revenue share. Cadence and calculation to be defined.</div></details>
       <details class="qa"><summary>Which Cisco entity acts as merchant of record, and how are invoicing, taxes, and revenue recognition handled?</summary><div class="qa-body">Legal entity, liability, tax treatment, and revenue recognition require finance and legal validation.</div></details>
-      <details class="qa"><summary>What exactly appears on GPL — one adoption SKU or multiple, and how do tiers map to SKUs?</summary><div class="qa-body">SKU structure, tier mapping, channel comp, and renewals to be aligned with commercial teams.</div></details>
+      <details class="qa"><summary>What exactly appears on GPL — one adoption SKU or multiple?</summary><div class="qa-body">SKU structure, channel comp, and renewals to be aligned with commercial teams.</div></details>
       <details class="qa"><summary>What is the minimum Cisco stack required to qualify a build, and who validates it?</summary><div class="qa-body">Defining the exact Secure AI Factory qualification bar (switching, security, SD-WAN, Galileo, Splunk) and the certification process.</div></details>
-      <details class="qa"><summary>Who owns the customer-support experience across Cisco, model builders, and infrastructure providers?</summary><div class="qa-body">Support ownership and incident division by tier to be defined.</div></details>
+      <details class="qa"><summary>Who owns the customer-support experience across Cisco, model builders, and infrastructure providers?</summary><div class="qa-body">Support ownership and incident division to be defined.</div></details>
 
       <div class="section-head" style="margin-top:44px;">
         <div class="eyebrow">Balanced View</div>
@@ -569,14 +473,14 @@
       <div class="cta-block">
         <div class="eyebrow" style="justify-content:center;display:flex;">Proposed Next Step</div>
         <h2>Form a small cross-functional working team</h2>
-        <p style="max-width:720px;margin:0 auto;">To define the adoption offer, the Secure AI Factory qualification bar, merchant-of-record structure, provider economics, GPL path, security requirements, Galileo and Splunk integration, and pilot customers and providers.</p>
+        <p style="max-width:720px;margin:0 auto;">To define the adoption offer, the Secure AI Factory qualification bar, the commercial structure, provider economics, GPL path, security requirements, Galileo and Splunk integration, and pilot customers and providers.</p>
         <div class="chip-row" style="justify-content:center;margin:22px 0;">
-          <span class="chip">Adoption offer</span><span class="chip">Factory qualification</span><span class="chip">MoR structure</span><span class="chip">Provider economics</span><span class="chip">GPL path</span><span class="chip">Security</span><span class="chip">Galileo</span><span class="chip">Splunk</span><span class="chip">Pilot customers</span><span class="chip">Pilot providers</span><span class="chip">Legal &amp; accounting</span>
+          <span class="chip">Adoption offer</span><span class="chip">Factory qualification</span><span class="chip">Commercial structure</span><span class="chip">Provider economics</span><span class="chip">GPL path</span><span class="chip">Security</span><span class="chip">Galileo</span><span class="chip">Splunk</span><span class="chip">Pilot customers</span><span class="chip">Pilot providers</span><span class="chip">Legal &amp; accounting</span>
         </div>
-        <p style="max-width:720px;margin:0 auto;">The immediate goal is not to finalize the full global business model — it is to determine whether Cisco can validate a gated, partner-powered, merchant-of-record, secure AI adoption model through a controlled pilot.</p>
-        <p class="closing">"Cisco Secure AI Harness could transform Cisco from an infrastructure and security provider supporting AI environments into the trusted commercial and operational layer through which enterprises securely adopt AI."</p>
+        <p style="max-width:720px;margin:0 auto;">The immediate goal is not to finalize the full global business model — it is to determine whether Cisco can validate a gated, partner-powered secure AI adoption model through a controlled pilot.</p>
+        <p class="closing">"Cisco Secure Harness could transform Cisco from an infrastructure and security provider supporting AI environments into the trusted layer through which enterprises securely adopt AI."</p>
       </div>
-      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="three">← Adoption Tiers &amp; Journey</button><button class="btn btn-primary" id="printBtn2">Print / Export PDF</button></div>
+      <div class="page-foot no-print"><button class="btn btn-ghost" data-goto="three">← Merchant of Record</button><button class="btn btn-primary" id="printBtn2">Print / Export PDF</button></div>
       <div class="page-disclaimer">Cisco Confidential · Internal Use Only — Not to Be Shared or Distributed Externally</div>
     </div>
   </section>
@@ -586,7 +490,7 @@
 
 <footer>
   <div class="container">
-    <div>Cisco Secure AI Harness — Internal Strategy &amp; Working-Session Draft · Not for external distribution</div>
+    <div>Cisco Secure Harness — Internal Strategy &amp; Working-Session Draft · Not for external distribution</div>
     <div class="footer-tags"><span class="tag tag-conceptual">Conceptual</span><span class="tag tag-illustrative">Illustrative</span><span class="tag tag-validation">Subject to Validation</span></div>
   </div>
 </footer>
@@ -614,17 +518,6 @@
     document.getElementById('progressBar').style.width = pct + '%';
   }
   window.addEventListener('scroll', updateProgress, {passive:true});
-
-  document.querySelectorAll('.tier-card').forEach(function(card){
-    function toggle(){
-      var ex = card.classList.toggle('expanded');
-      card.setAttribute('aria-expanded', ex ? 'true':'false');
-    }
-    card.addEventListener('click', toggle);
-    card.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
-    });
-  });
 
   ['printBtn','printBtn2'].forEach(function(id){
     var b = document.getElementById(id);
